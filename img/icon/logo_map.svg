@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 60 70" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+  </defs>
+  <path d="M30 60 l -15 -25a18 20 0 1 1 30 0Z" style="fill: rgba(66, 67, 55, 0.7);"/>
+  <path style="fill: rgb(216, 216, 216); fill: rgb(69, 117, 163);" d="M27 51l-1 -40l2 1z M26 11A10 10 0 0 1 30 35A8 9 0 0 0 27 13"/>
+  <path style="fill: rgb(216, 216, 216); fill: rgb(255, 255, 255);" d="M26 8a1 1 0 1 1 0 0.1"/>
+  <text x="20" y="42" style="white-space: pre; fill: rgb(255, 255, 255); font-size: 5px;">Пи плюс</text>
+</svg>
