@@ -6,28 +6,63 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pi plus</title>
 </head>
-<body>
+<body class="page">
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <header class="header">
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item">о компании</li>
-                <li class="nav__item">проекты</li>
-                <li class="nav__item">каталог</li>
-                <li class="nav__item">партнеры</li>
-                <li class="nav__item">новости</li>
-                <li class="nav__item">контакты</li>
-            </ul>
-        </nav>
+    <svg style="display:none">
+        <g id="logo_pi_plus">
+            <path class="icon--pi" d="M17 46l-1 -40l2 1z M16 6 A10 10 0 0 1 20 30 A 8 9 0 0 0 17 8"/>
+            <path class="icon--circle" d="M16 3 A 1 1 0 1 1 16 3.1"/>
+            <text class="icon--text" x="10" y="37">пи  плюс</text>
+        </g>
+    </svg>
+    <header class="page__header header">
+        <a href="#"class="header__logo">
+            <svg class="icon" viewBox="0 0 48 48">
+                <use x="5px" y="0" xlink:href="#logo_pi_plus" />
+            </svg>
+        </a>
+        <div class="header__title">
+            <div class="scroll-list">
+                <ul class="scroll-list__list text--header text--large">
+                    <li class="scroll-list__item">о компании</li>
+                    <li class="scroll-list__item scroll-list__item--show">проекты</li>
+                    <li class="scroll-list__item">каталог</li>
+                    <li class="scroll-list__item">партнеры</li>
+                    <li class="scroll-list__item">новости</li>
+                    <li class="scroll-list__item">контакты</li>
+                </ul>
+            </div>
+        </div>
+        <div class="header__menu">
+            <nav class="nav">
+                <ul class="nav__list text--header">
+                    <li class="nav__item">
+                        <a class="nav__subitem">о компании</a>
+                        <svg class="nav__subitem nav__subitem--absolute-center" viewBox="0 0 48 48">
+                            <use x="5px" y="0" xlink:href="#logo_pi_plus" />
+                        </svg>
+                    </li>
+                    <li class="nav__item">проекты</li>
+                    <li class="nav__item">каталог</li>
+                    <li class="nav__item">партнеры</li>
+                    <li class="nav__item">новости</li>
+                    <li class="nav__item">контакты</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header__button">
+            <button class="button">
+                <div class="button__title"></div>
+                <div class="button__logo"></div>
+            </button>
+        </div>
     </header>
-    <div class="wrapper-section">
-        <section class="section">
+    <main class="page__content">
+        <section class="page__section">
             <div class="wrapper-about">
                 <div class="about">
-                    <svg class="icon icon--large" viewBox="0 0 48 48">
-                        <path class="icon--pi" d="M17 46l-1 -40l2 1z M16 6 A10 10 0 0 1 20 30 A 8 9 0 0 0 17 8"/>
-                        <path class="icon--circle" d="M16 3 A 1 1 0 1 1 16 3.1"/>
-                        <text class="icon--text" x="10" y="37">пи  плюс</text>
+                    <svg class="icon icon_large" viewBox="0 0 48 48">
+                        <use x="0" y="0" xlink:href="#logo_pi_plus" />
                     </svg>
                     <div class="about__text text">
                         <span class="text__history">
@@ -61,7 +96,7 @@
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section class="page__section">
             <div class="wrapper-projects">
                 <div class="projects">
                     <div class="projects__grid">
@@ -112,30 +147,28 @@
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section class="page__section">
             <div class="wrapper-catalog">
                 <div class="catalog">
                     Раздел "Каталог" в процессе наполнения.
                 </div>
             </div>
         </section>
-        <section class="section">
+        <section class="page__section">
             <div class="wrapper-partners">
                 <div class="partners">
                     Раздел "Партнеры" в процессе наполнения.
                 </div>
             </div>
         </section>
-        <section class="section">
-            <section class="section">
-                <div class="wrapper-news">
-                    <div class="news">
-                        Раздел "Новости" в процессе наполнения.
-                    </div>
+        <section class="page__section">
+            <div class="wrapper-news">
+                <div class="news">
+                    Раздел "Новости" в процессе наполнения.
                 </div>
-            </section>
+            </div>
         </section>
-        <section class="section">
+        <section class="page__section">
             <div class="contact">
                 <div class="contact__text">
                     <span class="contact__address">
@@ -157,14 +190,12 @@
                 <div id="map" class="contact__map"></div>
             </div>
         </section>
-    </div>
-    <footer class="footer">
+    </main>
+    <footer class="page__footer footer">
         <div class="wrapper-footer">
             <div class="footer__company">
-                <svg class="icon icon--small" viewBox="0 0 48 48">
-                    <path class="icon--pi" d="M17 46l-1 -40l2 1z M16 6 A10 10 0 0 1 20 30 A 8 9 0 0 0 17 8"/>
-                    <path class="icon--circle" d="M16 3 A 1 1 0 1 1 16 3.1"/>
-                    <text class="icon--text" x="10" y="37">пи  плюс</text>
+                <svg class="icon icon_small" viewBox="0 0 48 48">
+                    <use x="0" y="0" xlink:href="#logo_pi_plus" />
                 </svg>
                 <div class="icon__text">ООО "Пи плюс", 2003-2018</div> 
             </div>

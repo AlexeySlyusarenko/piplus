@@ -10,6 +10,7 @@ function init() {
     myMap.behaviors.disable('scrollZoom');
     myMap.behaviors.disable('drag');
     myMap.behaviors.disable('multiTouch');
+    myMap.behaviors.disable('dblClickZoom');
 
     let coords = [55.745777, 37.666890],
         myCollection = new ymaps.GeoObjectCollection({}, {
