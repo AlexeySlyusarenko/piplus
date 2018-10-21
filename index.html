@@ -16,16 +16,16 @@
         </g>
     </svg>
     <header class="page__header header">
-        <a href="#"class="header__logo">
+        <a href="#" class="header__logo">
             <svg class="icon" viewBox="0 0 48 48">
                 <use x="5px" y="0" xlink:href="#logo_pi_plus" />
             </svg>
         </a>
         <div class="header__title">
-            <div class="scroll-list">
+            <div class="scroll-list scroll-list--animation">
                 <ul class="scroll-list__list text--header text--large">
                     <li class="scroll-list__item">о компании</li>
-                    <li class="scroll-list__item scroll-list__item--show">проекты</li>
+                    <li class="scroll-list__item">проекты</li>
                     <li class="scroll-list__item">каталог</li>
                     <li class="scroll-list__item">партнеры</li>
                     <li class="scroll-list__item">новости</li>
@@ -51,9 +51,8 @@
             </nav>
         </div>
         <div class="header__button">
-            <button class="button">
-                <div class="button__title"></div>
-                <div class="button__logo"></div>
+            <button class="button-menu button-menu--animation">
+                <div class="button-menu__logo"></div>
             </button>
         </div>
     </header>
@@ -168,7 +167,7 @@
                 </div>
             </div>
         </section>
-        <section class="page__section">
+        <!-- <section class="page__section">
             <div class="contact">
                 <div class="contact__text">
                     <span class="contact__address">
@@ -189,7 +188,7 @@
                 </div>
                 <div id="map" class="contact__map"></div>
             </div>
-        </section>
+        </section> -->
     </main>
     <footer class="page__footer footer">
         <div class="wrapper-footer">
@@ -210,5 +209,17 @@
     <script type="text/javascript" src="js/lang.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script type="text/javascript" src="js/map.js"></script>
+    <script>
+            var a = document.querySelector('.header__title').querySelectorAll('.scroll-list__item')
+ 
+             function shSc(a, b) {
+                 for (let i = 0; i < a.length; i++) {
+                     if (a[i].classList.contains('scroll-list__item--show')) {
+                         a[i].classList.remove('scroll-list__item--show');
+                         a[b].classList.add('scroll-list__item--show');
+                     }
+                 }
+             }
+         </script>
 </body>
 </html>

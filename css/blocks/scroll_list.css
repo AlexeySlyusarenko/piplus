@@ -20,10 +20,27 @@
     height: 0;
     transform: scale3d(1, 0, 1);
     opacity: 0;
-    transition: height 0.2s ease-in 0s, transform 0.2s ease-in 0s, opacity 0.2s ease-in 0s;
+    transition: height 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) 0s, transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) 0s, opacity 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) 0s;
+    will-change: height, transform, opacity;
 }
 .scroll-list__item--show {
     height: 100%;
     transform: scale3d(1, 1, 1);
     opacity: 1;
+}
+.scroll-list--animation .scroll-list__item:first-child {
+    animation: scroll-list-animation 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) 0.5s 1 normal forwards;
+}
+
+@keyframes scroll-list-animation {
+    0% {
+        height: 0;
+        transform: scale3d(1, 0, 1);
+        opacity: 0;
+    }
+    100% {
+        height: 100%;
+        transform: scale3d(1, 1, 1);
+        opacity: 1;
+    }
 }
