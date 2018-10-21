@@ -1,0 +1,29 @@
+/* style section */
+.scroll-list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.scroll-list__list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.scroll-list__item {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 0;
+    transform: scale3d(1, 0, 1);
+    opacity: 0;
+    transition: height 0.2s ease-in 0s, transform 0.2s ease-in 0s, opacity 0.2s ease-in 0s;
+}
+.scroll-list__item--show {
+    height: 100%;
+    transform: scale3d(1, 1, 1);
+    opacity: 1;
+}

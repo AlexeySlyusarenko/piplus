@@ -1,0 +1,44 @@
+/* variable section */
+.page {
+    --page-header-height: 72px;
+    --page-section-height: calc(100vh - var(--page-header-height));
+    --page-footer-height: 72px;
+}
+
+/* style section */
+.page {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'open-sans-regular';
+}
+
+.page__header {
+    z-index: 100;
+    position: relative;
+    width: 100vw;
+    height: var(--page-header-height);
+}
+
+.page__content {
+    z-index: 60;
+    position: relative;
+    padding-top: var(--page-header-height);
+    background-color: #212121;
+}
+
+.page__section {
+    z-index: 50;
+    position: relative;
+    width: 100vw;
+    height: var(--page-section-height);
+}
+.page__section:last-child {
+    height: calc(var(--page-section-height) - var(--page-footer-height));
+}
+
+.page__footer {
+    z-index: 100;
+    position: relative;
+    width: 100vw;
+    height: var(--page-footer-height);
+}

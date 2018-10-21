@@ -1,0 +1,25 @@
+.icon {
+    position: relative;
+    margin: 5px;
+}
+.icon_large {
+    width: 200px;
+    height: 300px;
+}
+.icon_small {
+    height: 50px;
+}
+
+.icon--pi {
+    fill: rgb(69, 117, 163);
+}
+
+.icon--circle {
+    fill: #fff;
+}
+
+.icon--text {
+    white-space: pre;
+    fill: #fff;
+    font-size: 5px;
+}

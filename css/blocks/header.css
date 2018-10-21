@@ -1,0 +1,115 @@
+/* variable section */
+.header {
+    --header-height: var(--page-header-height);
+}
+
+/* style section */
+.header {
+    opacity: 0.95;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: #424242;
+}
+
+.header__logo {
+    display: none;
+    position: relative;
+    width: var(--header-height);
+    height: var(--header-height);
+    cursor: pointer;
+}
+
+.header__title {
+    display: none;
+    flex-flow: row nowrap;
+    justify-content: center;
+    position: relative;
+    width: calc(100% - 2 * var(--header-height));
+    height: var(--header-height);
+}
+
+.header__menu {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+}
+
+.header__button {
+    display: none;
+    position: relative;
+    width: var(--header-height);
+    height: var(--header-height);
+}
+
+/* for portrait */
+@media screen and (orientation: portrait) {
+    @media screen and (max-width: 640px) {
+        .header {
+            justify-content: space-between;
+        }
+        .header__logo {
+            display: block;
+        }
+        .header__title {
+            display: flex;
+        }
+        .header__menu {
+            position: absolute;
+            width: calc(100vw - var(--header-height));
+            left: 100%;
+            top: 0;
+        }
+        .header__button {
+            display: flex;
+        }
+    }
+}
+
+/* ============================================================== */
+/* for landscape */
+@media screen and (orientation: landscape) {
+
+    @media screen and (max-width: 799px) {
+        .header {
+            justify-content: space-between;
+        }
+        .header__title {
+            display: flex;
+        }
+        .header__menu {
+            position: absolute;
+            width: calc(100vw - var(--header-height));
+            left: 100%;
+            top: 0;
+        }
+        .header__button {
+            display: flex;
+        }
+    }
+    @media screen and (min-width: 800px) {
+
+    }
+    @media screen and (max-width: 999px) and (min-aspect-ratio: 2/1) {
+        .header {
+            justify-content: space-between;
+        }
+        .header__title {
+            display: flex;
+        }
+        .header__menu {
+            position: absolute;
+            width: calc(100vw - var(--header-height));
+            left: 100%;
+            top: 0;
+        }
+        .header__button {
+            display: flex;
+        }
+    }
+}
