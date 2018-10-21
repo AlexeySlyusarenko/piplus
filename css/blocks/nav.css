@@ -93,6 +93,6 @@
     /* height: calc(var(--nav-height) - 15px); */
     transform: translateX(-50%) translateY(-50%);
 }
-.nav__anchor--hide {
+/* .nav__anchor--hide {
 
-}
+} */
