@@ -220,16 +220,17 @@
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script type="text/javascript" src="js/map.js"></script>
     <script>
-            var a = document.querySelector('.header__title').querySelectorAll('.scroll-list__item')
- 
-             function shSc(a, b) {
-                 for (let i = 0; i < a.length; i++) {
-                     if (a[i].classList.contains('scroll-list__item--show')) {
-                         a[i].classList.remove('scroll-list__item--show');
-                         a[b].classList.add('scroll-list__item--show');
-                     }
-                 }
-             }
-         </script>
+        var a = document.querySelector('.header__title').querySelectorAll('.scroll-list__item')
+
+        function shSc(a, b) {
+            for (let i = 0; i < a.length; i++) {
+                if (a[i].classList.contains('scroll-list__item--show')) {
+                    a[i].classList.remove('scroll-list__item--show');
+                    a[b].classList.add('scroll-list__item--show');
+                }
+            }
+        }
+        document.onload(alert('123'));
+    </script>
 </body>
 </html>
