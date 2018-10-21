@@ -13,7 +13,6 @@
     height: 4px;
     border-radius: 2px;
     background-color: #acacac;
-    transform: scale3d(0 ,1, 1);
 }
 .button-menu__logo::before {
     content: '';
@@ -34,17 +33,4 @@
     height: 4px;
     border-radius: 2px;
     background-color: #acacac;
-}
-
-.button-menu--animation > .button-menu__logo {
-    animation: button-menu-animation 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) 1s 1 normal forwards;
-}
-
-@keyframes button-menu-animation {
-    0% {
-        transform: scale3d(0 ,1, 1);
-    }
-    100% {
-        transform: scale3d(1 ,1, 1);
-    }
 }

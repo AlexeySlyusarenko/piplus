@@ -1,3 +1,12 @@
+/* font section */
+@font-face{
+    font-family: "open-sans-regular"; 
+    src: url('../../fonts/GOST type B.ttf');
+    font-weight: normal;
+    font-style: normal;    
+}
+
+/* style section */
 .text--header {
     font-family: 'open-sans-regular';
     font-size: 20px;
