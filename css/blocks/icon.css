@@ -1,25 +1,54 @@
+/* ============================================================== */
+
+/* style section */
+
 .icon {
-    position: relative;
-    margin: 5px;
-}
-.icon_large {
-    width: 200px;
-    height: 300px;
-}
-.icon_small {
-    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.icon--pi {
+.icon__svg {
+    width: 100%;
+    height: 100%;
+}
+
+.icon__svg--pi {
     fill: rgb(69, 117, 163);
 }
 
-.icon--circle {
+.icon__svg--circle {
     fill: #fff;
 }
 
-.icon--text {
-    white-space: pre;
-    fill: #fff;
-    font-size: 5px;
+.icon__svg--letter {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+}
+
+/* ============================================================== */
+
+/* media queries section */
+/* for portrait */
+
+@media screen and (orientation: portrait) {
+    .icon__svg--fullscreen {
+        width: 100vw;
+    }
+    @media screen and (max-aspect-ratio: 4/3) {
+        .icon__svg--fullscreen {
+            width: 70vh;
+        }
+    }
+}
+
+/* for landscape */
+
+@media screen and (orientation: landscape) {
+    .icon__svg--fullscreen {
+        width: 70vh;
+    }
 }

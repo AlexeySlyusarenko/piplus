@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path d="M80 187l-5 -165l10 1z M76 22 A15 15 0 0 1 90 110 A 35 39.3 0 0 0 83 32" style="fill: rgb(85, 156, 218);"/>
+    <circle cx="80" cy="10" r="5" style="fill: rgb(60, 194, 82);"/>
+    <path style="fill: none; stroke: rgb(71, 219, 113); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px;" d="M35 142l0 -16l7 0a4 4 0 0 1 4 4l0 12"/>
+    <path style="fill: none; stroke: rgb(71, 219, 113); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px;" d="M54 126l0 12a4 4 0 0 0 4 4l7 0l0 -16"/>
+    <path style="fill: none; stroke: rgb(71, 219, 113); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px;" d="M95 142l0 -16l7 0a4 4 0 0 1 4 4l0 12"/>
+    <path style="fill: none; stroke: rgb(71, 219, 113); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px;" d="M114 142l5 -16l5 0l0 16"/>
+    <path style="fill: none; stroke: rgb(71, 219, 113); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px;" d="M132 142l0 -16m1 8l6 0l0 -5a3 3 0 0 1 3 -3l2 0a3 3 0 0 1 3 3l0 10a3 3 0 0 1 -3 3l-2 0a3 3 0 0 1 -3 -3l0 -6"/>
+    <path style="fill: none; stroke: rgb(71, 219, 113); stroke-linecap: round; stroke-linejoin: round; stroke-width: 3px;" d="M163 126l-5 0a3 3 0 0 0 -3 3l0 10a3 3 0 0 0 3 3l5 0"/>
+  </g>
+</svg>

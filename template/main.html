@@ -1,0 +1,121 @@
+<main class="page__content">
+    <section class="page__section about">
+        <!-- <div class="about"> -->
+            <div class="about__content">
+                <svg class="about__logo icon" viewBox="0 0 192 192">
+                    <use x="0" y="0" xlink:href="#logo_pi_plus" />
+                </svg>
+                <div class="about__slider">
+                    <div class="about__text slider slider--horizontal">
+                        <ul class="slider__list text text--medium">
+                            <li class="slider__item slider__item--pos-left">
+                                <h3 class="text__h3 text__h3--center">История</h3>
+                                <p class="text__p text__p--justify">ООО «Пи плюс» основана в 2003 году коллективом высококлассных технических специалистов и менеджеров и на сегодняшний день является одной из динамично-развивающихся компаний на российском рынке строительства и недвижимости. Компания продолжает развиваться и завоевывать ведущие позиции на рынке, используя в своей работе новейшие методы и лучшие практики, увеличивая тем самым ценность и значимость объектов для Заказчика и потенциальных клиентов.</p>
+                                <p class="text__p text__p--justify">Основная цель компании - стать Партнером, который поможет Вам добиться успеха в Вашем бизнесе.</p>          
+                            </li>
+                            <li class="slider__item slider__item--pos-left slider__item--end">
+                                <h3 class="text__h3 text__h3--center">Наша стратегия</h3>
+                                <p class="text__p text__p--justify">- Максимальное использование профессиональных знаний, опыта и навыков персонала «Пи плюс»</p>
+                                <p class="text__p text__p--justify">- Выбор профессиональных Партнеров для контроля качества и своевременного исполнения обязательств</p>
+                                <p class="text__p text__p--justify">- Сотрудничество с ведущими Российскими и зарубежными компаниями</p>
+                            </li>
+                            <li class="slider__item slider__item--pos-left slider__item--end">
+                                <h3 class="text__h3 text__h3--center">Команда</h3>
+                                <p class="text__p text__p--justify">В настоящее время в компании ООО «Пи плюс» работают высококвалифицированные специалисты, обеспечивающие выполнение проектов, техническую и сервисную поддержку.</p>
+                                <p class="text__p text__p--justify">Инженерно-технический персонал компании обладает большим опытом и знает, как обеспечить наиболее высокий уровень эффективности и безопасности инженерных систем без снижения продуктивности работы и комфорта для Заказчика.</p>
+                            </li>
+                            <li class="slider__item slider__item--pos-left slider__item--end">
+                                <h3 class="text__h3 text__h3--center">Деятельность</h3>
+                                <p class="text__p">Основная деятельность нашей компании строится по направлениям проектирования, выполнения работ и сервисной поддержки в следующих областях:</p>
+                                <p class="text__p">- Электроснабжение</p>
+                                <p class="text__p">- Системы автоматизации</p>
+                                <p class="text__p">- Отопление, вентиляция и кондиционирование</p>
+                                <p class="text__p">- Системы водоснабжения и канализации</p>
+                                <p class="text__p">- Пожарная и охранная сигнализации</p>
+                                <p class="text__p">- Системы контроля доступа и видеонаблюдения</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <script>
+                        let sliderListElem = document.querySelector('.about__text').querySelector('.slider__list'),
+                            sliderItemsElems = sliderListElem.querySelectorAll('.slider__item'),
+                            sliderItemMaxHeight = 0;
+                        
+                        for (let i = 0; i < sliderItemsElems.length; i++) {
+                            let sliderItemHeight = sliderItemsElems[i].getBoundingClientRect().height;
+
+                            if (sliderItemMaxHeight < sliderItemHeight) sliderItemMaxHeight = sliderItemHeight;
+                        }
+
+                        sliderListElem.style.height = sliderItemMaxHeight + 'px';
+                    </script>
+                    <div class="about__checkbox">
+                        <button class="button button--checked">
+                            <div class="button__logo button__logo--circle"></div>
+                        </button>
+                        <button class="button">
+                            <div class="button__logo button__logo--circle"></div>
+                        </button>
+                        <button class="button">
+                            <div class="button__logo button__logo--circle"></div>
+                        </button>
+                        <button class="button">
+                            <div class="button__logo button__logo--circle"></div>
+                        </button>
+                    </div>
+                </div>     
+            </div>
+        <!-- </div> -->
+    </section>
+    <!-- <section class="page__section">
+        <div class="projects">
+            Раздел "Проекты" в процессе наполнения.
+        </div>
+    </section>
+    <section class="page__section">
+        <div class="wrapper-catalog">
+            <div class="catalog">
+                Раздел "Каталог" в процессе наполнения.
+            </div>
+        </div>
+    </section>
+    <section class="page__section">
+        <div class="wrapper-partners">
+            <div class="partners">
+                Раздел "Партнеры" в процессе наполнения.
+            </div>
+        </div>
+    </section>
+    <section class="page__section">
+        <div class="wrapper-news">
+            <div class="news">
+                Раздел "Новости" в процессе наполнения.
+            </div>
+        </div>
+    </section> -->
+    <!-- <section class="page__section">
+        <div class="contact">
+            Раздел "Контакты" в процессе наполнения.
+        </div> -->
+        <!-- <div class="contact">
+            <div class="contact__text">
+                <span class="contact__address">
+                    109004, Россия, Москва, ул. Александра Солженицына, д. 31 стр. 1
+                </span>
+                <svg class="contact__icon" viewBox="0 0 24 24">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                <span class="contact__tel">
+                    +7 (495) 797-56-21
+                </span>
+                <svg class="contact__icon" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                </svg>
+                <span class="contact__mail">
+                    reception@piplus.ru
+                </span>
+            </div>
+            <div id="map" class="contact__map"></div>
+        </div> -->
+    <!-- </section> -->
+</main>

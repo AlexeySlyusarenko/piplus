@@ -1,0 +1,67 @@
+/* ============================================================== */
+
+/* variable section */
+
+.slider {
+    --slider-animation: 0.3s var(--page-animation-func);
+}
+
+/* ============================================================== */
+
+/* style section */
+
+.slider {
+    display: block;
+}
+
+.slider__list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider__item {
+    position: absolute;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    transform-origin: 50% 50%;
+    transition: transform var(--slider-animation) 0s,
+                opacity var(--slider-animation) 0s;
+    will-change: transform, opacity;
+}
+/* .slider__item--pos-left {
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+} */
+.slider--vertical .slider__item {
+    height: 100%;
+}
+.slider--vertical .slider__item {
+    width: 100%;
+}
+.slider--vertical .slider__item--begin {
+    opacity: 0;
+    transform: translate3d(0, -40%, 0) scale3d(1, 0.1, 1);
+}
+.slider--vertical .slider__item--end {
+    opacity: 0;
+    transform: translate3d(0, 40%, 0) scale3d(1, 0.1, 1);
+}
+.slider--horizontal .slider__item--begin {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0) scale3d(0, 1, 1);
+}
+.slider--horizontal .slider__item--end {
+    opacity: 0;
+    transform: translate3d(50%, 0, 0) scale3d(0, 1, 1);
+}

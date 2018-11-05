@@ -1,0 +1,150 @@
+/* ============================================================== */
+
+/* variable section */
+
+.about {
+    --about-text-color: #adadad;
+    
+    --about-max-width: var(--page-section-max-width);
+
+    --about-text-height: var(--page-section-height);
+
+    --about-animation: 0.3s var(--page-animation-func);
+    --about-animation-delay: var(--page-animation-delay);
+}
+
+/* ============================================================== */
+
+/* style section */
+
+.about {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: var(--about-max-width);
+}
+
+.about__logo {
+    position: relative;
+    height: initial;
+    opacity: 0;
+    transform: translate3d(-100% ,0, 0);
+}
+
+.about__slider {
+    position: relative;
+    width: 50%;
+}
+
+.about__text {
+    position: relative;
+    padding: 0;
+    color: var(--about-text-color);
+    opacity: 0;
+    transform: translate3d(100% ,0, 0) scale3d(0, 1, 1);
+}
+
+.about__checkbox {
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================================================== */
+
+/* start page animation section */
+
+.page--animation .about__logo {
+    animation: about-logo-animation var(--about-animation) calc(0s + var(--about-animation-delay)) 1 normal forwards;
+}
+@keyframes about-logo-animation {
+    0% {
+        opacity: 0;
+        transform: translate3d(-100% ,0, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0 ,0, 0);
+    }
+}
+
+.page--animation .about__text {
+    animation: about-text-animation var(--about-animation) calc(0.3s + var(--about-animation-delay)) 1 normal forwards;
+}
+@keyframes about-text-animation {
+    0% {
+        opacity: 0;
+        transform: translate3d(100% ,0, 0) scale3d(0, 1, 1);
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0 ,0, 0) scale3d(1, 1, 1);
+    }
+}
+
+/* ============================================================== */
+
+/* media queries section */
+/* for portrait */
+
+@media screen and (orientation: portrait) {
+    .about__content {
+        flex-flow: column nowrap;
+        height: 70vh;
+    }
+    .about__logo {
+        width: 25%;
+    }
+    @media screen and (max-width: 640px) {
+        .about__slider {
+            width: 100%;
+        }
+        .about__logo {
+            display: none !important;
+        }
+        .about__text {
+            padding: 0 10vw;
+        }
+    }
+    @media screen and (min-width: 641px) {
+        .about__logo {
+            width: 35%;
+        }
+    }
+}
+
+/* for landscape */
+
+@media screen and (orientation: landscape) {
+    .about__logo {
+        width: 30%;
+    }
+    @media screen and (max-width: 799px) {
+        .about__slider {
+            width: 100%;
+        }
+        .about__logo {
+            display: none !important;
+        }
+        .about__text {
+            padding: 0 10vw;
+        }
+    }
+    @media screen and (min-width: 800px) {
+
+    }
+    @media screen and (max-width: 999px) and (min-aspect-ratio: 2/1) {
+
+    }
+}

@@ -1,0 +1,42 @@
+<!-- <script type="text/javascript" src="js/nav.js"></script> -->
+<!-- <script type="text/javascript" src="js/lang.js"></script> -->
+<!-- <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script> -->
+<!-- <script type="text/javascript" src="js/map.js"></script> -->
+<script>
+    var a = document.querySelector('.header__title').querySelectorAll('.slider__item')
+    var c = document.querySelector('.about__slider').querySelectorAll('.slider__item')
+
+    function shSc(a, b) {
+        if (b >= a.length) return -1;
+        
+        for (let i = 0; i < a.length; i++) {
+            if (!a[i].classList.contains('slider__item--begin') ||
+                !a[i].classList.contains('slider__item--end')) {
+                if (i > b) {
+                    a[i].classList.add('slider__item--end');
+                    a[b].classList.remove('slider__item--begin');
+                }
+                if (i < b) {
+                    a[i].classList.add('slider__item--begin');
+                    a[b].classList.remove('slider__item--end');
+                }
+            }
+        }
+    }
+    window.addEventListener("load", function(event) {
+        console.log('Page was loaded.');
+    });
+
+    var navItems = document.querySelector('.header__menu').querySelectorAll('.nav__item');
+
+    function setItemActive(navItems, setItemActive) {
+        if (setItemActive >= navItems.length) setItemActive = navItems.length - 1;
+
+        for (let i = 0; i < navItems.length; i++) {
+            if (navItems[i].classList.contains('nav__item--active')) {
+                navItems[i].classList.remove('nav__item--active');
+                navItems[setItemActive].classList.add('nav__item--active');
+            }
+        }
+    }
+</script>
