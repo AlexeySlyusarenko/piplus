@@ -3,13 +3,13 @@
 /* variable section */
 
 .about {
-    --about-text-color: #adadad;
+    --about-text-color: #c0c0c0;
     
     --about-max-width: var(--page-section-max-width);
 
     --about-text-height: var(--page-section-height);
 
-    --about-animation: 0.3s var(--page-animation-func);
+    --about-animation: 0.5s var(--page-animation-func);
     --about-animation-delay: var(--page-animation-delay);
 }
 
@@ -42,7 +42,7 @@
 
 .about__slider {
     position: relative;
-    width: 50%;
+    width: 80%;
 }
 
 .about__text {
@@ -53,12 +53,18 @@
     transform: translate3d(100% ,0, 0) scale3d(0, 1, 1);
 }
 
-.about__checkbox {
+.about__checkbox-list {
     position: relative;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    padding: 0;
+}
+.about__checkbox-item {
+    position: relative;
+    opacity: 0;
+    transform: scale3d(0, 0, 1);
 }
 
 /* ============================================================== */
@@ -93,6 +99,35 @@
     }
 }
 
+.page--animation .about__checkbox-item {
+    animation: about-checkbox-item-animation var(--about-animation) calc(0.6s + var(--about-animation-delay)) 1 normal forwards;
+}
+.page--animation .about__checkbox-item:nth-child(1) {
+    animation-delay: calc(0.6s + var(--about-animation-delay));
+}
+.page--animation .about__checkbox-item:nth-child(2) {
+    animation-delay: calc(0.7s + var(--about-animation-delay));
+}
+.page--animation .about__checkbox-item:nth-child(3) {
+    animation-delay: calc(0.8s + var(--about-animation-delay));
+}
+.page--animation .about__checkbox-item:nth-child(4) {
+    animation-delay: calc(0.9s + var(--about-animation-delay));
+}
+.page--animation .about__checkbox-item:nth-child(5) {
+    animation-delay: calc(1s + var(--about-animation-delay));
+}
+@keyframes about-checkbox-item-animation {
+    0% {
+        opacity: 0;
+        transform: scale3d(0, 0, 1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale3d(1.2, 1.2, 1);
+    }
+}
+
 /* ============================================================== */
 
 /* media queries section */
@@ -114,6 +149,9 @@
             display: none !important;
         }
         .about__text {
+            padding: 0 10vw;
+        }
+        .about__checkbox-list {
             padding: 0 10vw;
         }
     }
@@ -138,6 +176,9 @@
             display: none !important;
         }
         .about__text {
+            padding: 0 10vw;
+        }
+        .about__checkbox-list {
             padding: 0 10vw;
         }
     }

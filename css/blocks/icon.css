@@ -14,16 +14,19 @@
 }
 
 .icon__svg--pi {
-    fill: rgb(69, 117, 163);
+    fill: #9e9e9e;
+    /* fill: rgb(69, 117, 163); */
 }
 
 .icon__svg--circle {
-    fill: #fff;
+    fill: rgb(69, 117, 163);
+    /* fill: #fff; */
 }
 
 .icon__svg--letter {
     fill: none;
-    stroke: #fff;
+    stroke: rgb(69, 117, 163);
+    /* stroke: #fff; */
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 2px;

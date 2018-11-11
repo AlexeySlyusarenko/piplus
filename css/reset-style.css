@@ -1,13 +1,12 @@
 * {
     box-sizing: border-box;
-    /* padding: 0;
+    padding: 0;
     margin: 0;
-    border: 0; */
+    border: 0;
 }
 
 body {
-    margin: 0; 
-    background-color: #fff;
+    /* margin: 0;  */
     line-height: 1; 
     text-rendering: optimizeLegibility;
     text-decoration-skip: objects;
@@ -22,8 +21,8 @@ a {
 
 ul,
 li {
-    padding: 0;
-    margin: 0;
+    /* padding: 0;
+    margin: 0; */
     list-style-type: none;
 }
 
@@ -33,7 +32,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0;
+    /* margin: 0; */
 }
 
 :focus {
@@ -50,8 +49,8 @@ input,
 optgroup,
 select,
 textarea {
-    padding: 0;
-    margin: 0;
+    /* padding: 0;
+    margin: 0; */
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -83,7 +82,7 @@ button::-moz-focus-inner,
 [type='reset']::-moz-focus-inner,
 [type='submit']::-moz-focus-inner {
     border: none;
-    padding: 0;
+    /* padding: 0; */
 }
 
 button:-moz-focusring,

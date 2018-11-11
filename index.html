@@ -5,77 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Пи плюс</title>
-    <style>
-        .page {
-            --page-header-height: 72px;
-            --page-header-bg-color: #424242;
-
-            --page-content-color: #212121;
-
-            --page-section-height: calc(100vh - var(--page-header-height) - var(--page-footer-height));
-            
-            --page-section-max-width: 900px;
-
-            --page-footer-height: 72px;
-            --page-footer-bg-color: #424242;
-
-            --page-animation-func: cubic-bezier(0.4, 0.0, 0.2, 1);
-            --page-animation-delay: 0.5s;
-        }
-        .page {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        .page__logo {
-            z-index: 400;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        .icon {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .icon__svg {
-            width: 100%;
-            height: 100%;
-        }
-
-        .icon__svg--pi {
-            fill: rgb(69, 117, 163);
-        }
-
-        .icon__svg--circle {
-            fill: #fff;
-        }
-
-        .icon__svg--letter {
-            fill: none;
-            stroke: #fff;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-width: 2px;
-        }
-        @media screen and (orientation: portrait) {
-            .icon__svg--fullscreen {
-                width: 100vw;
-            }
-            @media screen and (max-aspect-ratio: 4/3) {
-                .icon__svg--fullscreen {
-                    width: 70vh;
-                }
-            }
-        }
-        @media screen and (orientation: landscape) {
-            .icon__svg--fullscreen {
-                width: 70vh;
-            }
-        }
-    </style>
+    <!-- <style>
+        
+    </style> -->
+    <link rel="stylesheet" href="/css/preload.css">
     <svg style="display:none">
         <g id="logo_pi_plus">
             <path class="icon__svg--pi" d="M80 187l-5 -165l10 1z M76 22 A15 15 0 0 1 90 110 A 35 39.3 0 0 0 83 32"/>
@@ -89,11 +22,207 @@
         </g>
     </svg>
 </head>
-<body class="page" style="background-color: #212121">
-    <div class="page__logo icon">
-        <svg class="icon__svg icon__svg--fullscreen" viewBox="0 0 192 192">
-            <use x="0" y="0" xlink:href="#logo_pi_plus" />
-        </svg>
-    </div>
+<body style="background-color: var(--page-content-color)" class="page">
+<!-- <body style="background-color: var(--page-content-color)" class="page page--animation"> -->
+    <header class="page__header header header--animation">
+        <a href="#" class="header__logo"></a>
+        <!-- <a href="#" class="header__logo icon">
+            <svg class="icon__svg" viewBox="0 0 192 192">
+                <use x="0" y="0" xlink:href="#logo_pi_plus" />
+            </svg>
+        </a> -->
+        <div class="header__title text text--header text--large slider slider--vertical">
+            <ul class="slider__list">
+                <li class="slider__item">о компании</li>
+                <li class="slider__item slider__item--end">новости</li>
+                <li class="slider__item slider__item--end">партнеры</li>
+                <li class="slider__item slider__item--end">проекты</li>
+                <li class="slider__item slider__item--end">контакты</li>
+            </ul>
+        </div>
+        <nav class="header__menu nav">
+            <ul class="nav__list text text--header text--large">
+                <li class="nav__item nav__item--active">
+                    <a class="nav__anchor">о компании</a>
+                    <svg class="nav__anchor nav__anchor--absolute-center nav__anchor--hide" viewBox="0 0 48 48">
+                        <use x="5px" y="0" xlink:href="#logo_pi_plus" />
+                    </svg>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__anchor">новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__anchor">партнеры</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__anchor">проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__anchor">контакты</a>
+                </li>
+            </ul>
+            <button class="nav__button button button--pos-absolute">
+                <div class="button__logo button__logo--arrow-right"></div>
+            </button>
+        </nav>
+        <div class="header__button">
+            <button class="button">
+                <div class="button__logo button__logo--menu"></div>
+            </button>
+        </div>
+    </header>
+    <main class="page__content">
+        <section class="page__section page__section--parallax">
+            <div class="page__logo page__logo--animation icon">
+                <svg class="icon__svg icon__svg--fullscreen" viewBox="0 0 192 192">
+                    <use x="0" y="0" xlink:href="#logo_pi_plus" />
+                </svg>
+            </div>
+            <div class="about">
+                <div class="about__content">
+                    <!-- <svg class="about__logo icon" viewBox="0 0 192 192">
+                        <use x="0" y="0" xlink:href="#logo_pi_plus" />
+                    </svg> -->
+                    <div class="about__slider">
+                        <div class="about__text slider slider--horizontal">
+                            <ul class="slider__list text text--medium">
+                                <li class="slider__item slider__item--pos-left">
+                                    <h3 class="text__h3 text__h3--center">История</h3>
+                                    <p class="text__p text__p--justify">ООО «Пи плюс» основана в 2003 году коллективом высококлассных технических специалистов и менеджеров и на сегодняшний день является одной из динамично-развивающихся компаний на российском рынке строительства и недвижимости. Компания продолжает развиваться и завоевывать ведущие позиции на рынке, используя в своей работе новейшие методы и лучшие практики, увеличивая тем самым ценность и значимость объектов для Заказчика и потенциальных клиентов.</p>
+                                    <p class="text__p text__p--justify">Основная цель компании - стать Партнером, который поможет Вам добиться успеха в Вашем бизнесе.</p>          
+                                </li>
+                                <li class="slider__item slider__item--pos-left slider__item--end">
+                                    <h3 class="text__h3 text__h3--center">Наша стратегия</h3>
+                                    <p class="text__p text__p--justify">- Максимальное использование профессиональных знаний, опыта и навыков персонала «Пи плюс»</p>
+                                    <p class="text__p text__p--justify">- Выбор профессиональных Партнеров для контроля качества и своевременного исполнения обязательств</p>
+                                    <p class="text__p text__p--justify">- Сотрудничество с ведущими Российскими и зарубежными компаниями</p>
+                                </li>
+                                <li class="slider__item slider__item--pos-left slider__item--end">
+                                    <h3 class="text__h3 text__h3--center">Команда</h3>
+                                    <p class="text__p text__p--justify">В настоящее время в компании ООО «Пи плюс» работают высококвалифицированные специалисты, обеспечивающие выполнение проектов, техническую и сервисную поддержку.</p>
+                                    <p class="text__p text__p--justify">Инженерно-технический персонал компании обладает большим опытом и знает, как обеспечить наиболее высокий уровень эффективности и безопасности инженерных систем без снижения продуктивности работы и комфорта для Заказчика.</p>
+                                </li>
+                                <li class="slider__item slider__item--pos-left slider__item--end">
+                                    <h3 class="text__h3 text__h3--center">Деятельность</h3>
+                                    <p class="text__p">Основная деятельность нашей компании строится по направлениям проектирования, выполнения работ и сервисной поддержки в следующих областях:</p>
+                                    <p class="text__p">- Электроснабжение</p>
+                                    <p class="text__p">- Системы автоматизации</p>
+                                    <p class="text__p">- Отопление, вентиляция и кондиционирование</p>
+                                    <p class="text__p">- Системы водоснабжения и канализации</p>
+                                    <p class="text__p">- Пожарная и охранная сигнализации</p>
+                                    <p class="text__p">- Системы контроля доступа и видеонаблюдения</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <script>
+                            let sliderListElem = document.querySelector('.about__text').querySelector('.slider__list'),
+                                sliderItemsElems = sliderListElem.querySelectorAll('.slider__item'),
+                                sliderItemMaxHeight = 0;
+                            
+                            for (let i = 0; i < sliderItemsElems.length; i++) {
+                                let sliderItemHeight = sliderItemsElems[i].getBoundingClientRect().height + 8;
+
+                                if (sliderItemMaxHeight < sliderItemHeight) sliderItemMaxHeight = sliderItemHeight;
+                            }
+
+                            sliderListElem.style.height = sliderItemMaxHeight + 'px';
+                        </script>
+                        <ul class="about__checkbox-list">
+                            <li class="about__checkbox-item">
+                                <button class="button button--checked">
+                                    <div class="button__logo button__logo--circle"></div>
+                                </button>
+                            </li>
+                            <li class="about__checkbox-item">
+                                <button class="button">
+                                    <div class="button__logo button__logo--circle"></div>
+                                </button>
+                            </li>
+                            <li class="about__checkbox-item">
+                                <button class="button">
+                                    <div class="button__logo button__logo--circle"></div>
+                                </button>
+                            </li>
+                            <li class="about__checkbox-item">
+                                <button class="button">
+                                    <div class="button__logo button__logo--circle"></div>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>     
+                </div>
+            </div>
+        </section>
+        <section class="page__section">
+            <div class="projects">
+                Раздел "Проекты" в процессе наполнения.
+            </div>
+        </section>
+        <section class="page__section">
+            <div class="wrapper-catalog">
+                <div class="catalog">
+                    Раздел "Каталог" в процессе наполнения.
+                </div>
+            </div>
+        </section>
+        <section class="page__section">
+            <div class="wrapper-partners">
+                <div class="partners">
+                    Раздел "Партнеры" в процессе наполнения.
+                </div>
+            </div>
+        </section>
+        <section class="page__section">
+            <div class="wrapper-news">
+                <div class="news">
+                    Раздел "Новости" в процессе наполнения.
+                </div>
+            </div>
+        </section>
+        <!-- <section class="page__section">
+            <div class="contact">
+                Раздел "Контакты" в процессе наполнения.
+            </div> -->
+            <!-- <div class="contact">
+                <div class="contact__text">
+                    <span class="contact__address">
+                        109004, Россия, Москва, ул. Александра Солженицына, д. 31 стр. 1
+                    </span>
+                    <svg class="contact__icon" viewBox="0 0 24 24">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    <span class="contact__tel">
+                        +7 (495) 797-56-21
+                    </span>
+                    <svg class="contact__icon" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+                    </svg>
+                    <span class="contact__mail">
+                        reception@piplus.ru
+                    </span>
+                </div>
+                <div id="map" class="contact__map"></div>
+            </div> -->
+        <!-- </section> -->
+    </main>
+    <footer class="page__footer">
+        <div class="footer text text--footer">
+            <span class="footer__company">ООО "Пи плюс", 2003-2018</span>
+            <ul class="footer__lang">
+                <li class="footer__lang-item footer__lang-item--mobile footer__lang-item--after-slash footer__lang-item--active">RU</li>
+                <li class="footer__lang-item footer__lang-item--mobile">EN</li>
+                <li class="footer__lang-item footer__lang-item--desktop footer__lang-item--after-slash footer__lang-item--active">Русский</li>
+                <li class="footer__lang-item footer__lang-item--desktop">English</li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        window.addEventListener('load', () => {
+            console.log('Page was loaded.');
+            setTimeout(() => {
+                document.querySelector('.page').classList.add('page--animation')
+                }, 4000);
+        });
+    </script>
 </body>
 </html>
