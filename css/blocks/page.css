@@ -65,7 +65,8 @@
     height: calc(100vh - var(--page-header-height) - var(--page-footer-height));
     perspective: 1px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 .page__section:last-child {
     margin: 0 0 var(--page-footer-height) 0;
