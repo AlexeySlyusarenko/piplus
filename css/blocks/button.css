@@ -29,36 +29,37 @@
 
 .button__logo {
     position: relative;
-    height: 4px;
+    height: 3px;
     border-radius: 2px;
     background-color: #acacac;
 }
 .button__logo::before {
     content: '';
     position: absolute;
-    height: 4px;
+    height: 3px;
     border-radius: 2px;
     background-color: #acacac;
 }
 .button__logo::after {
     content: '';
     position: absolute;
-    height: 4px;
+    height: 3px;
     border-radius: 2px;
     background-color: #acacac;
 }
 
 .button__logo--menu {
-    width: 40%;
+    width: 20px;
+    transform: translateY(-1px);
 }
 .button__logo--menu::before {
     left: 0;
-    top: -10px;
+    top: -8px;
     width: 100%;
 }
 .button__logo--menu::after {
     left: 0;
-    top: 10px;
+    top: 8px;
     width: 100%;
 }
 
