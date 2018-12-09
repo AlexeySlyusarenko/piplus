@@ -4,7 +4,8 @@
 
 .page {
     --page-header-height: 72px;
-    --page-section-min-height: calc(100vh - var(--page-header-height) - var(--page-footer-height));
+    --page-section-min-height: 100vh;
+    /* --page-section-min-height: calc(100vh - var(--page-header-height) - var(--page-footer-height)); */
     --page-section-max-width: 900px;
     --page-footer-height: 72px;
 
@@ -31,8 +32,8 @@
 
 .page {
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .page__header {
@@ -50,31 +51,19 @@
 .page__content {
     z-index: 100;
     position: relative;
-    background-color: var(--page-content-color);
 }
 
 .page__section {
-    z-index: 50;
+    z-index: 200;
     position: relative;
     width: 100%;
     min-height: var(--page-section-min-height);
-    margin: var(--page-header-height) 0;
-}
-.page__section--parallax {
-    height: calc(100vh - var(--page-header-height) - var(--page-footer-height));
-    perspective: 1px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-}
-.page__section:last-child {
-    margin: 0 0 var(--page-footer-height) 0;
+    padding: var(--page-footer-height) 0;
 }
 
 .page__logo {
-    z-index: 80;
-    position: absolute;
+    z-index: 50;
+    position: fixed;
     width: 100%;
     height: 100%;
     opacity: 0;
@@ -87,12 +76,10 @@
     0% {
         opacity: 0;
         transform: scale3d(0, 0, 1);
-        /* transform: translateZ(-1px) scale3d(0, 0, 2); */
     }
     100% {
         opacity: 1;
         transform: scale3d(1, 1, 1);
-        /* transform: translateZ(-1px) scale3d(2, 2, 2); */
     }
 }
 
@@ -101,7 +88,7 @@
     z-index: 200;
     position: fixed;
     left: 0;
-    top: calc(100vh - var(--page-footer-height));
+    bottom: 0;
     width: 100%;
     height: var(--page-footer-height);
     background-color: var(--page-footer-bg-color);
