@@ -60,6 +60,12 @@
     min-height: var(--page-section-min-height);
     padding: var(--page-footer-height) 0;
 }
+.page__section:nth-child(2n) {
+    background: red
+}
+.page__section:nth-child(2n+1) {
+    background: green
+}
 
 .page__logo {
     z-index: 50;
