@@ -62,7 +62,7 @@
     width: 100vw;
     height: 100vh;
     opacity: 0;
-    transform-origin: 50vw 50vh;
+    transform-origin: 50% 50%;
 }
 .page__logo--animation {
     animation: page-logo-begin-animation 2s var(--page-animation-func) 0s 1 normal forwards;
