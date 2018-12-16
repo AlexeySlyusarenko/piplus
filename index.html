@@ -25,6 +25,49 @@
 </head>
 
 <body style="background-color: var(--page-content-bg-color)" class="page">
+        <script>        
+            let windowSizeElem = document.createElement('div'),
+                windowSizeElemVH = document.createElement('div'),
+                pageElem = document.querySelector('.page');
+    
+            windowSizeElem.style.position = 'fixed';
+            windowSizeElem.style.left = '100px';
+            windowSizeElem.style.top = '0px';
+            windowSizeElem.style.height = '100%';
+            windowSizeElem.style.backgroundColor = 'white';
+            windowSizeElem.style.zIndex = '1000';
+    
+            pageElem.appendChild(windowSizeElem);
+    
+            windowSizeElemVH.style.position = 'fixed';
+            windowSizeElemVH.style.left = '50px';
+            windowSizeElemVH.style.top = '0px';
+            windowSizeElemVH.style.height = '100vh';
+            windowSizeElemVH.style.backgroundColor = 'red';
+            windowSizeElemVH.style.zIndex = '900';
+    
+            windowSizeElemVH.textContent = '100vh'
+    
+            pageElem.appendChild(windowSizeElemVH);
+    
+            function updateWindowSizeElem(windowSizeElem) {
+                windowSizeElem.innerHTML = `100% <br>
+                                            window.innerHeight = ${window.innerHeight} <br>
+                                            window.outerHeight = ${window.outerHeight} <br>
+                                            document.documentElement.clientHeight = <br>${document.documentElement.clientHeight} <br>
+                                            document.documentElement.scrollHeight = <br>${document.documentElement.scrollHeight} <br>
+                                            document.documentElement.offsetHeight = <br>${document.documentElement.offsetHeight} <br>
+                                            windowSizeElem.clientHeight100% = <br>${windowSizeElem.clientHeight} <br>
+                                            windowSizeElem.offsetHeight100% = <br>${windowSizeElem.offsetHeight} <br>
+                                            windowSizeElem.clientHeight100vh = <br>${windowSizeElemVH.clientHeight} <br>
+                                            windowSizeElem.offsetHeight100vh = <br>${windowSizeElemVH.offsetHeight} <br>`;
+                
+            }
+    
+            updateWindowSizeElem(windowSizeElem);
+    
+            window.addEventListener('resize', () => {updateWindowSizeElem(windowSizeElem);});        
+        </script>
     <!-- <body style="background-color: var(--page-content-bg-color)" class="page page--animation"> -->
     <header class="page__header header header--animation">
         <div class="header__title text text--header text--large slider slider--vertical">
@@ -239,48 +282,6 @@
                 document.querySelector('.page').classList.add('page--animation')
             }, 4000);
         });
-        
-        let windowSizeElem = document.createElement('div'),
-            windowSizeElemVH = document.createElement('div'),
-            pageElem = document.querySelector('.page');
-
-        windowSizeElem.style.position = 'fixed';
-        windowSizeElem.style.left = '100px';
-        windowSizeElem.style.top = '0px';
-        windowSizeElem.style.height = '100%';
-        windowSizeElem.style.backgroundColor = 'white';
-        windowSizeElem.style.zIndex = '1000';
-
-        pageElem.appendChild(windowSizeElem);
-
-        windowSizeElemVH.style.position = 'fixed';
-        windowSizeElemVH.style.left = '50px';
-        windowSizeElemVH.style.top = '0px';
-        windowSizeElemVH.style.height = '100vh';
-        windowSizeElemVH.style.backgroundColor = 'red';
-        windowSizeElemVH.style.zIndex = '900';
-
-        windowSizeElemVH.textContent = '100vh'
-
-        pageElem.appendChild(windowSizeElemVH);
-
-        function updateWindowSizeElem(windowSizeElem) {
-            windowSizeElem.innerHTML = `100% <br>
-                                        window.innerHeight = ${window.innerHeight} <br>
-                                        window.outerHeight = ${window.outerHeight} <br>
-                                        document.documentElement.clientHeight = <br>${document.documentElement.clientHeight} <br>
-                                        document.documentElement.scrollHeight = <br>${document.documentElement.scrollHeight} <br>
-                                        document.documentElement.offsetHeight = <br>${document.documentElement.offsetHeight} <br>
-                                        windowSizeElem.clientHeight100% = <br>${windowSizeElem.clientHeight} <br>
-                                        windowSizeElem.offsetHeight100% = <br>${windowSizeElem.offsetHeight} <br>
-                                        windowSizeElem.clientHeight100vh = <br>${windowSizeElemVH.clientHeight} <br>
-                                        windowSizeElem.offsetHeight100vh = <br>${windowSizeElemVH.offsetHeight} <br>`;
-            
-        }
-
-        updateWindowSizeElem(windowSizeElem);
-
-        window.addEventListener('resize', () => {updateWindowSizeElem(windowSizeElem);});        
     </script>
 </body>
 
