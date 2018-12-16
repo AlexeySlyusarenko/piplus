@@ -257,9 +257,12 @@
                                         document.documentElement.clientHeight = ${document.documentElement.clientHeight} <br>
                                         document.documentElement.scrollHeight = ${document.documentElement.scrollHeight} <br>
                                         document.documentElement.offsetHeight = ${document.documentElement.offsetHeight} `;
+            
         }
 
         updateWindowSizeElem(windowSizeElem);
+
+        window.addEventListener('resize', () => {updateWindowSizeElem(windowSizeElem);});        
     </script>
 </body>
 
