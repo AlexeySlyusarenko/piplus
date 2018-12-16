@@ -5,7 +5,7 @@
 .page {
 /* size element */
     --page-header-height: 72px;
-    --page-section-min-height: 100vh;
+    --page-section-min-height: 400px;
     --page-section-max-width: 900px;
     --page-footer-height: 72px;
 
