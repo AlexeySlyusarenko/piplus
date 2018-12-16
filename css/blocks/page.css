@@ -14,9 +14,10 @@
     --page-header-bg-color: rgba(33, 33, 33, 0.9);
     /* --page-header-bg-color: #424242; */
     --page-content-bg-color: #212121;
-    --page-content-main-color: #212121;
-    --page-content-font-active-color: #212121;
-    --page-content-font-passive-color: #212121;
+    --page-content-primary-color: #212121;
+    --page-content-second-color: #4575A3;
+    --page-content-active-color: #fff;
+    --page-content-passive-color: #bdbdbd;
     --page-footer-bg-color: rgba(33, 33, 33, 0.9);
     /* --page-footer-bg-color: #424242; */
 
@@ -40,20 +41,6 @@
     position: relative;
     width: 100%;
     overflow-x: hidden;
-    scrollbar-color: var(--page-content-bg-color);
-    scrollbar-width: 10px;
-}
-::-webkit-scrollbar {
-    width: 10px;
-}
-::-webkit-scrollbar-track {
-    background: var(--page-content-bg-color); 
-}
-::-webkit-scrollbar-thumb {
-    background: #888; 
-}
-::-webkit-scrollbar-thumb:hover {
-    background: #555; 
 }
 
 .page__logo {

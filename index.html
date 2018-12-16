@@ -73,10 +73,10 @@
         </svg>
     </div>
     <main class="page__content">
-        <section class="page__section">1</section>
-        <section class="page__section">1</section>
-        <section class="page__section">1</section>
-        <section class="page__section">1</section>
+        <section class="page__section" style="color: white">1</section>
+        <section class="page__section" style="color: white">2</section>
+        <section class="page__section" style="color: white">3</section>
+        <section class="page__section" style="color: white">4</section>
         <!--<section class="page__section">
             <div class="about">
                 Раздел "Проекты" в процессе наполнения.
@@ -219,8 +219,8 @@
                 </div>
                 <div id="map" class="contact__map"></div>
             </div>
-        </section>
-    </main> -->
+        </section> -->
+    </main>
     <footer class="page__footer">
         <div class="footer text text--footer">
             <span class="footer__company">ООО "Пи плюс", 2003-2018</span>
@@ -239,6 +239,27 @@
                 document.querySelector('.page').classList.add('page--animation')
             }, 4000);
         });
+        
+        let windowSizeElem = document.createElement('div'),
+            pageElem = document.querySelector('.page');
+
+        windowSizeElem.style.position = 'fixed';
+        windowSizeElem.style.left = '50px';
+        windowSizeElem.style.top = '10px';
+        windowSizeElem.style.backgroundColor = 'white';
+        windowSizeElem.style.zIndex = '1000';
+
+        pageElem.appendChild(windowSizeElem);
+
+        function updateWindowSizeElem(windowSizeElem) {
+            windowSizeElem.innerHTML = `window.innerHeight = ${window.innerHeight} <br>
+                                        window.outerHeight = ${window.outerHeight} <br>
+                                        document.documentElement.clientHeight = ${document.documentElement.clientHeight} <br>
+                                        document.documentElement.scrollHeight = ${document.documentElement.scrollHeight} <br>
+                                        document.documentElement.offsetHeight = ${document.documentElement.offsetHeight} `;
+        }
+
+        updateWindowSizeElem(windowSizeElem);
     </script>
 </body>
 
