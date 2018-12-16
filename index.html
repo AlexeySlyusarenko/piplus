@@ -241,22 +241,40 @@
         });
         
         let windowSizeElem = document.createElement('div'),
+            windowSizeElemVH = document.createElement('div'),
             pageElem = document.querySelector('.page');
 
         windowSizeElem.style.position = 'fixed';
-        windowSizeElem.style.left = '50px';
-        windowSizeElem.style.top = '10px';
+        windowSizeElem.style.left = '100px';
+        windowSizeElem.style.top = '0px';
+        windowSizeElem.style.height = '100%';
         windowSizeElem.style.backgroundColor = 'white';
         windowSizeElem.style.zIndex = '1000';
 
         pageElem.appendChild(windowSizeElem);
 
+        windowSizeElemVH.style.position = 'fixed';
+        windowSizeElemVH.style.left = '50px';
+        windowSizeElemVH.style.top = '0px';
+        windowSizeElemVH.style.height = '100vh';
+        windowSizeElemVH.style.backgroundColor = 'red';
+        windowSizeElemVH.style.zIndex = '900';
+
+        windowSizeElemVH.textContent = '100vh'
+
+        pageElem.appendChild(windowSizeElemVH);
+
         function updateWindowSizeElem(windowSizeElem) {
-            windowSizeElem.innerHTML = `window.innerHeight = ${window.innerHeight} <br>
+            windowSizeElem.innerHTML = `100% <br>
+                                        window.innerHeight = ${window.innerHeight} <br>
                                         window.outerHeight = ${window.outerHeight} <br>
                                         document.documentElement.clientHeight = ${document.documentElement.clientHeight} <br>
                                         document.documentElement.scrollHeight = ${document.documentElement.scrollHeight} <br>
-                                        document.documentElement.offsetHeight = ${document.documentElement.offsetHeight} `;
+                                        document.documentElement.offsetHeight = ${document.documentElement.offsetHeight} <br>
+                                        windowSizeElem.clientHeight100% = ${windowSizeElem.clientHeight} <br>
+                                        windowSizeElem.offsetHeight100% = ${windowSizeElem.offsetHeight} <br>
+                                        windowSizeElem.clientHeight100vh = ${windowSizeElemVH.clientHeight} <br>
+                                        windowSizeElem.offsetHeight100vh = ${windowSizeElemVH.offsetHeight} <br>`;
             
         }
 
