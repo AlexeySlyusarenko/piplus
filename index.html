@@ -7,282 +7,51 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Пи плюс</title>
     <style>
-        
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: var(--page-content-bg-color);
+            overflow: hidden;
+        }
+        body {
+            line-height: 1; 
+            text-rendering: optimizeLegibility;
+            text-decoration-skip: objects;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -webkit-tap-highlight-color: transparent;
+        }
     </style>
+    <link rel="stylesheet" href="css/blocks/icon.css">
+    <link rel="stylesheet" href="css/blocks/logo.css">
     <link rel="stylesheet" href="css/preload.css">
     <svg style="display:none">
-        <g id="logo_pi_plus">
-            <path class="icon__svg--pi" d="M80 187l-5 -165l10 1z M76 22 A15 15 0 0 1 90 110 A 35 39.3 0 0 0 83 32" />
-            <circle class="icon__svg--circle" cx="80" cy="10" r="4" />
-            <path class="icon__svg--letter" d="M35 142l0 -16l7 0a4 4 0 0 1 4 4l0 12" />
-            <path class="icon__svg--letter" d="M54 126l0 12a4 4 0 0 0 4 4l7 0l0 -16" />
-            <path class="icon__svg--letter" d="M95 142l0 -16l7 0a4 4 0 0 1 4 4l0 12" />
-            <path class="icon__svg--letter" d="M114 142l5 -16l5 0l0 16" />
-            <path class="icon__svg--letter" d="M132 142l0 -16m1 8l6 0l0 -5a3 3 0 0 1 3 -3l2 0a3 3 0 0 1 3 3l0 10a3 3 0 0 1 -3 3l-2 0a3 3 0 0 1 -3 -3l0 -6" />
-            <path class="icon__svg--letter" d="M163 126l-5 0a3 3 0 0 0 -3 3l0 10a3 3 0 0 0 3 3l5 0" />
+        <g id="logo_pi_plus" class="icon">
+            <path class="icon__svg icon__svg--pi" d="M80 187l-5 -165l10 1z M76 22 A15 15 0 0 1 90 110 A 35 39.3 0 0 0 83 32" />
+            <circle class="icon__svg icon__svg--circle" cx="80" cy="10" r="4" />
+            <path class="icon__svg icon__svg--letter" d="M35 142l0 -16l7 0a4 4 0 0 1 4 4l0 12" />
+            <path class="icon__svg icon__svg--letter" d="M54 126l0 12a4 4 0 0 0 4 4l7 0l0 -16" />
+            <path class="icon__svg icon__svg--letter" d="M95 142l0 -16l7 0a4 4 0 0 1 4 4l0 12" />
+            <path class="icon__svg icon__svg--letter" d="M114 142l5 -16l5 0l0 16" />
+            <path class="icon__svg icon__svg--letter" d="M132 142l0 -16m1 8l6 0l0 -5a3 3 0 0 1 3 -3l2 0a3 3 0 0 1 3 3l0 10a3 3 0 0 1 -3 3l-2 0a3 3 0 0 1 -3 -3l0 -6" />
+            <path class="icon__svg icon__svg--letter" d="M163 126l-5 0a3 3 0 0 0 -3 3l0 10a3 3 0 0 0 3 3l5 0" />
         </g>
     </svg>
 </head>
 
-<body style="background-color: var(--page-content-bg-color)" class="page">
-        <script>        
-            let windowSizeElem = document.createElement('div'),
-                windowSizeElemVH = document.createElement('div'),
-                pageElem = document.querySelector('.page');
-    
-            windowSizeElem.style.position = 'fixed';
-            windowSizeElem.style.left = '100px';
-            windowSizeElem.style.top = '0px';
-            windowSizeElem.style.height = '100%';
-            windowSizeElem.style.backgroundColor = 'white';
-            windowSizeElem.style.zIndex = '1000';
-    
-            pageElem.appendChild(windowSizeElem);
-    
-            windowSizeElemVH.style.position = 'fixed';
-            windowSizeElemVH.style.left = '50px';
-            windowSizeElemVH.style.top = '0px';
-            windowSizeElemVH.style.height = '100vh';
-            windowSizeElemVH.style.backgroundColor = 'red';
-            windowSizeElemVH.style.zIndex = '900';
-    
-            windowSizeElemVH.textContent = '100vh'
-    
-            pageElem.appendChild(windowSizeElemVH);
-    
-            function updateWindowSizeElem(windowSizeElem) {
-                windowSizeElem.innerHTML = `100% <br>
-                                            window.innerHeight = ${window.innerHeight} <br>
-                                            window.outerHeight = ${window.outerHeight} <br>
-                                            document.documentElement.clientHeight = <br>${document.documentElement.clientHeight} <br>
-                                            document.documentElement.scrollHeight = <br>${document.documentElement.scrollHeight} <br>
-                                            document.documentElement.offsetHeight = <br>${document.documentElement.offsetHeight} <br>
-                                            windowSizeElem.clientHeight100% = <br>${windowSizeElem.clientHeight} <br>
-                                            windowSizeElem.offsetHeight100% = <br>${windowSizeElem.offsetHeight} <br>
-                                            windowSizeElem.clientHeight100vh = <br>${windowSizeElemVH.clientHeight} <br>
-                                            windowSizeElem.offsetHeight100vh = <br>${windowSizeElemVH.offsetHeight} <br>`;
-                
-            }
-    
-            updateWindowSizeElem(windowSizeElem);
-    
-            window.addEventListener('resize', () => {updateWindowSizeElem(windowSizeElem);});        
-        </script>
-    <!-- <body style="background-color: var(--page-content-bg-color)" class="page page--animation"> -->
-    <header class="page__header header header--animation">
-        <div class="header__title text text--header text--large slider slider--vertical">
-            <ul class="slider__list">
-                <li class="slider__item">о компании</li>
-                <li class="slider__item slider__item--end">новости</li>
-                <li class="slider__item slider__item--end">партнеры</li>
-                <li class="slider__item slider__item--end">проекты</li>
-                <li class="slider__item slider__item--end">контакты</li>
-            </ul>
-        </div>
-        <nav class="header__menu nav">
-            <ul class="nav__list text text--header text--large">
-                <li class="nav__item nav__item--active">
-                    <a class="nav__anchor">о компании</a>
-                    <svg class="nav__anchor nav__anchor--absolute-center nav__anchor--hide" viewBox="0 0 48 48">
-                        <use x="5px" y="0" xlink:href="#logo_pi_plus" />
-                    </svg>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__anchor">новости</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__anchor">партнеры</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__anchor">проекты</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__anchor">контакты</a>
-                </li>
-            </ul>
-            <button class="nav__button button button--pos-absolute">
-                <div class="button__logo button__logo--arrow-right"></div>
-            </button>
-        </nav>
-        <div class="header__button">
-            <button class="button">
-                <div class="button__logo button__logo--menu"></div>
-            </button>
-        </div>
-    </header>
-    <div class="page__logo page__logo--animation icon">
-        <svg class="icon__svg icon__svg--fullscreen" viewBox="0 0 192 192">
+<body>
+    <div class="logo logo--fullparent logo--start-with-animation">
+        <svg class="logo__img logo__img--fullscreen" viewBox="0 0 192 192">
             <use x="0" y="0" xlink:href="#logo_pi_plus" />
         </svg>
     </div>
-    <main class="page__content">
-        <section class="page__section" style="color: white">1</section>
-        <section class="page__section" style="color: white">2</section>
-        <section class="page__section" style="color: white">3</section>
-        <section class="page__section" style="color: white">4</section>
-        <!--<section class="page__section">
-            <div class="about">
-                Раздел "Проекты" в процессе наполнения.
-            </div>
-            <div class="about">
-                <div class="about__content">
-                    <div class="about__slider">
-                        <div class="about__text slider slider--horizontal">
-                            <ul class="slider__list text text--medium">
-                                <li class="slider__item slider__item--pos-left">
-                                    <h3 class="text__h3 text__h3--center">История</h3>
-                                    <p class="text__p text__p--justify">ООО «Пи плюс» основана в 2003 году коллективом
-                                        высококлассных технических специалистов и менеджеров и на сегодняшний день
-                                        является одной из динамично-развивающихся компаний на российском рынке
-                                        строительства и недвижимости. Компания продолжает развиваться и завоевывать
-                                        ведущие позиции на рынке, используя в своей работе новейшие методы и лучшие
-                                        практики, увеличивая тем самым ценность и значимость объектов для Заказчика и
-                                        потенциальных клиентов.</p>
-                                    <p class="text__p text__p--justify">Основная цель компании - стать Партнером,
-                                        который поможет Вам добиться успеха в Вашем бизнесе.</p>
-                                </li>
-                                <li class="slider__item slider__item--pos-left slider__item--end">
-                                    <h3 class="text__h3 text__h3--center">Наша стратегия</h3>
-                                    <p class="text__p text__p--justify">- Максимальное использование профессиональных
-                                        знаний, опыта и навыков персонала «Пи плюс»</p>
-                                    <p class="text__p text__p--justify">- Выбор профессиональных Партнеров для контроля
-                                        качества и своевременного исполнения обязательств</p>
-                                    <p class="text__p text__p--justify">- Сотрудничество с ведущими Российскими и
-                                        зарубежными компаниями</p>
-                                </li>
-                                <li class="slider__item slider__item--pos-left slider__item--end">
-                                    <h3 class="text__h3 text__h3--center">Команда</h3>
-                                    <p class="text__p text__p--justify">В настоящее время в компании ООО «Пи плюс»
-                                        работают высококвалифицированные специалисты, обеспечивающие выполнение
-                                        проектов, техническую и сервисную поддержку.</p>
-                                    <p class="text__p text__p--justify">Инженерно-технический персонал компании
-                                        обладает большим опытом и знает, как обеспечить наиболее высокий уровень
-                                        эффективности и безопасности инженерных систем без снижения продуктивности
-                                        работы и комфорта для Заказчика.</p>
-                                </li>
-                                <li class="slider__item slider__item--pos-left slider__item--end">
-                                    <h3 class="text__h3 text__h3--center">Деятельность</h3>
-                                    <p class="text__p">Основная деятельность нашей компании строится по направлениям
-                                        проектирования, выполнения работ и сервисной поддержки в следующих областях:</p>
-                                    <p class="text__p">- Электроснабжение</p>
-                                    <p class="text__p">- Системы автоматизации</p>
-                                    <p class="text__p">- Отопление, вентиляция и кондиционирование</p>
-                                    <p class="text__p">- Системы водоснабжения и канализации</p>
-                                    <p class="text__p">- Пожарная и охранная сигнализации</p>
-                                    <p class="text__p">- Системы контроля доступа и видеонаблюдения</p>
-                                </li>
-                            </ul>
-                        </div>
-                        <script>
-                            let sliderListElem = document.querySelector('.about__text').querySelector('.slider__list'),
-                                sliderItemsElems = sliderListElem.querySelectorAll('.slider__item'),
-                                sliderItemMaxHeight = 0;
-
-                            for (let i = 0; i < sliderItemsElems.length; i++) {
-                                let sliderItemHeight = sliderItemsElems[i].getBoundingClientRect().height + 8;
-
-                                if (sliderItemMaxHeight < sliderItemHeight) sliderItemMaxHeight = sliderItemHeight;
-                            }
-
-                            sliderListElem.style.height = sliderItemMaxHeight + 'px';
-                        </script>
-                        <ul class="about__checkbox-list">
-                            <li class="about__checkbox-item">
-                                <button class="button button--checked">
-                                    <div class="button__logo button__logo--circle"></div>
-                                </button>
-                            </li>
-                            <li class="about__checkbox-item">
-                                <button class="button">
-                                    <div class="button__logo button__logo--circle"></div>
-                                </button>
-                            </li>
-                            <li class="about__checkbox-item">
-                                <button class="button">
-                                    <div class="button__logo button__logo--circle"></div>
-                                </button>
-                            </li>
-                            <li class="about__checkbox-item">
-                                <button class="button">
-                                    <div class="button__logo button__logo--circle"></div>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="page__section">
-            <div class="projects">
-                Раздел "Проекты" в процессе наполнения.
-            </div>
-        </section>
-        <section class="page__section">
-            <div class="wrapper-catalog">
-                <div class="catalog">
-                    Раздел "Каталог" в процессе наполнения.
-                </div>
-            </div>
-        </section>
-        <section class="page__section">
-            <div class="wrapper-partners">
-                <div class="partners">
-                    Раздел "Партнеры" в процессе наполнения.
-                </div>
-            </div>
-        </section>
-        <section class="page__section">
-            <div class="wrapper-news">
-                <div class="news">
-                    Раздел "Новости" в процессе наполнения.
-                </div>
-            </div>
-        </section>
-        <section class="page__section">
-            <div class="contact">
-                Раздел "Контакты" в процессе наполнения.
-            </div>
-        <div class="contact">
-                <div class="contact__text">
-                    <span class="contact__address">
-                        109004, Россия, Москва, ул. Александра Солженицына, д. 31 стр. 1
-                    </span>
-                    <svg class="contact__icon" viewBox="0 0 24 24">
-                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                    </svg>
-                    <span class="contact__tel">
-                        +7 (495) 797-56-21
-                    </span>
-                    <svg class="contact__icon" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
-                    </svg>
-                    <span class="contact__mail">
-                        reception@piplus.ru
-                    </span>
-                </div>
-                <div id="map" class="contact__map"></div>
-            </div>
-        </section> -->
-    </main>
-    <footer class="page__footer">
-        <div class="footer text text--footer">
-            <span class="footer__company">ООО "Пи плюс", 2003-2018</span>
-            <ul class="footer__lang">
-                <li class="footer__lang-item footer__lang-item--mobile footer__lang-item--after-slash footer__lang-item--active">RU</li>
-                <li class="footer__lang-item footer__lang-item--mobile">EN</li>
-                <li class="footer__lang-item footer__lang-item--desktop footer__lang-item--after-slash footer__lang-item--active">Русский</li>
-                <li class="footer__lang-item footer__lang-item--desktop">English</li>
-            </ul>
-        </div>
-    </footer>
-    <script>
-        window.addEventListener('load', () => {
-            console.log('Page was loaded.');
-            setTimeout(() => {
-                document.querySelector('.page').classList.add('page--animation')
-            }, 4000);
-        });
-    </script>
+    
 </body>
 
 </html>

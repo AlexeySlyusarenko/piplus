@@ -1,0 +1,65 @@
+/* ============================================================== */
+
+/* style section */
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.logo--fullparent {
+    width: 100%;
+    height: 100%;
+}
+.logo--start-with-animation {
+    opacity: 0;
+    transform: scale3d(0, 0, 1);
+}
+
+.logo__img {
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================================== */
+
+/* media queries section */
+/* for portrait */
+
+@media screen and (orientation: portrait) {
+    @media screen and (min-aspect-ratio: 9/16) {
+        .logo__img--fullscreen {
+            height: 80%;
+        }
+    }
+}
+
+/* for landscape */
+
+@media screen and (orientation: landscape) {
+    .logo__img--fullscreen {
+        height: 80%;
+    }
+}
+
+/* ============================================================== */
+
+/* start page animation section */
+
+.logo--start-with-animation {
+    animation: logo-end-animation 4s cubic-bezier(.31,.21,.48,1) 0s 1 normal forwards;
+}
+@keyframes logo-end-animation {
+    0% {
+        opacity: 0;
+        transform: scale3d(0, 0, 1);
+    }
+    40% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+    100% {
+        opacity: 0.2;
+        transform: scale3d(0.9, 0.9, 1);
+    }
+}
