@@ -30,7 +30,7 @@
     </style>
     <link rel="stylesheet" href="css/preload.css">
     <svg style="display:none">
-        <g id="logo_pi_plus" class="icon">
+        <g id="icon_pi_plus" class="icon">
             <path class="icon__svg icon__svg--pi" d="M80 187l-5 -165l10 1z M76 22 A15 15 0 0 1 90 110 A 35 39.3 0 0 0 83 32" />
             <circle class="icon__svg icon__svg--circle" cx="80" cy="10" r="4" />
             <path class="icon__svg icon__svg--letter" d="M35 142l0 -16l7 0a4 4 0 0 1 4 4l0 12" />
@@ -40,33 +40,31 @@
             <path class="icon__svg icon__svg--letter" d="M132 142l0 -16m1 8l6 0l0 -5a3 3 0 0 1 3 -3l2 0a3 3 0 0 1 3 3l0 10a3 3 0 0 1 -3 3l-2 0a3 3 0 0 1 -3 -3l0 -6" />
             <path class="icon__svg icon__svg--letter" d="M163 126l-5 0a3 3 0 0 0 -3 3l0 10a3 3 0 0 0 3 3l5 0" />
         </g>
+        <g id="icon_mail" class="icon">
+            <path class="icon__svg icon__svg--inside-text" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+        </g>
+        <g id="icon_tel" class="icon">
+            <path class="icon__svg icon__svg--inside-text" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </g>
     </svg>
 </head>
 
 <body class="page page--start-with-animation">
+
+    <script src="js/page.js"></script>
+
     <div class="page__logo page__logo--start-with-animation">
         <svg class="icon icon--fullparent icon--height-80" viewBox="0 0 192 192">
-            <use x="0" y="0" xlink:href="#logo_pi_plus" />
+            <use x="0" y="0" xlink:href="#icon_pi_plus" />
         </svg>
     </div>
-    <div class="page__viewport">
-        <header class="page__header header header--animation">
-            <div class="header__title text text--header text--large slider slider--vertical">
-                <ul class="slider__list">
-                    <li class="slider__item">о компании</li>
-                    <li class="slider__item slider__item--end">новости</li>
-                    <li class="slider__item slider__item--end">проекты</li>
-                    <li class="slider__item slider__item--end">партнеры</li>
-                    <li class="slider__item slider__item--end">контакты</li>
-                </ul>
-            </div>
+    
+    <header class="page__header">
+        <div class="header">
             <nav class="header__menu nav">
                 <ul class="nav__list text text--header text--large">
                     <li class="nav__item nav__item--active">
                         <a class="nav__anchor">о компании</a>
-                        <svg class="nav__anchor nav__anchor--absolute-center nav__anchor--hide" viewBox="0 0 48 48">
-                            <use x="5px" y="0" xlink:href="#logo_pi_plus" />
-                        </svg>
                     </li>
                     <li class="nav__item">
                         <a class="nav__anchor">новости</a>
@@ -85,32 +83,43 @@
                     <div class="button__logo button__logo--arrow-right"></div>
                 </button>
             </nav>
-            <div class="header__button">
-                <button class="button">
-                    <div class="button__logo button__logo--menu"></div>
-                </button>
-            </div>
-        </header>
+        </div>
+    </header>
 
-        <main class="page__content">
-            <section class="page__section" style="color: white">1</section>
-            <section class="page__section" style="color: white">2</section>
-            <section class="page__section" style="color: white">3</section>
-            <section class="page__section" style="color: white">4</section>
-        </main>
+    <main class="page__content">
+        <section class="page__section" style="color: white">1</section>
+        <section class="page__section" style="color: white">2</section>
+        <section class="page__section" style="color: white">3</section>
+        <section class="page__section" style="color: white">4</section>
+    </main>
 
-        <footer class="page__footer">
-            <div class="footer text text--footer">
-                <span class="footer__company">ООО "Пи плюс", 2003-2018</span>
-                <ul class="footer__lang">
-                    <li class="footer__lang-item footer__lang-item--mobile footer__lang-item--after-slash footer__lang-item--active">RU</li>
-                    <li class="footer__lang-item footer__lang-item--mobile">EN</li>
-                    <li class="footer__lang-item footer__lang-item--desktop footer__lang-item--after-slash footer__lang-item--active">Русский</li>
-                    <li class="footer__lang-item footer__lang-item--desktop">English</li>
-                </ul>
-            </div>
-        </footer>
-    </div>
+    <footer class="page__footer">
+        <div class="footer">
+            <address class="footer__company contact contact--footer">
+                <span class="contact__text">
+                    ООО "Пи плюс", 2003-2019
+                </span>
+                <svg class="icon icon--size-24px icon--inside-text" viewBox="0 0 24 24">
+                    <use x="0" y="0" xlink:href="#icon_tel" />
+                </svg>
+                <a href="tel:+74957975621" class="contact__text">
+                    +7 (495) 797-56-21
+                </a>
+                <svg class="icon icon--size-24px icon--inside-text" viewBox="0 0 24 24">
+                    <use x="0" y="0" xlink:href="#icon_mail" />
+                </svg>
+                <a href="mailto:reception@piplus.ru" class="contact__text">
+                    reception@piplus.ru
+                </a>
+            </address>
+            <ul class="footer__lang">
+                <li class="footer__lang-item footer__lang-item--short">рус</li>
+                <li class="footer__lang-item footer__lang-item--short">en</li>
+                <li class="footer__lang-item footer__lang-item--long">русский</li>
+                <li class="footer__lang-item footer__lang-item--long">english</li>
+            </ul>
+        </div>
+    </footer>
 </body>
 
 </html>

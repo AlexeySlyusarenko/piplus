@@ -73,11 +73,11 @@
 
 /* start page animation section */
 
-.page--animation .footer__company {
+.page--start-with-animation .footer__company {
     animation: footer-animation var(--footer-animation) calc(0.9s + var(--footer-animation-delay)) 1 normal forwards;
 }
 
-.page--animation .footer__lang {
+.page--start-with-animation .footer__lang {
     animation: footer-animation var(--footer-animation) calc(1.2s + var(--footer-animation-delay)) 1 normal forwards;
 }
 
