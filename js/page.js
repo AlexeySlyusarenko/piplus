@@ -9,6 +9,9 @@ class PageObj {
         this.showDebugElem(
             this.dpiDevice,
             this.getWidthScrollBar(),
+            this.widthPx,
+            this.heightPx,
+            window.devicePixelRatio,
             this.widthInch,
             this.heightInch
         );
