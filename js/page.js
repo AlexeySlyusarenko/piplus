@@ -1,40 +1,49 @@
 class PageObj {
     constructor() {
-        this.dpiDevice = this.getDPIdevice();
-
         this.elem = document.querySelector('.page');
-        // this.widthPx = this.elem.clientWidth;
-        // this.heightPx = this.elem.clientHeight;
-        // this.widthInch = this.widthPx / this.dpiDevice;
-        // this.heightInch = this.heightPx / this.dpiDevice;
 
-        this.setSizePage ();
+        this.dpiDevice = this.getDPIdevice();
+        this.setSizePage();
+        
+        // debug
+        this.showDebugElem();
     }
 
     getDPIdevice() {
-        for (let dpi = 10; dpi < 750; dpi = dpi + 10) {
-            let dpiMediaCSS = window.matchMedia(
-                `(min-resolution: ${dpi}dpi) and (max-resolution: ${dpi + 10}dpi)`
-            );
-    
-            if (dpiMediaCSS.matches) return dpi + 5;
+        let dpiStartVal = 1,
+            dpiEndVal = 1000;
+
+        while(dpiStartVal != dpiEndVal) {
+
+            let dpiMidVal = Math.floor(dpiStartVal + (dpiEndVal - dpiStartVal) / 2),
+                dpiMediaCSS = window.matchMedia(
+                    `(min-resolution: ${dpiStartVal}dpi) and (max-resolution: ${dpiMidVal}dpi)`
+                );
+
+            if (dpiMediaCSS.matches) {
+                dpiEndVal = dpiMidVal;
+            } else {
+                dpiStartVal = dpiMidVal + 1;
+            }
         }
-    
+
+        if(window.matchMedia(`(resolution: ${dpiStartVal}dpi)`).matches) return dpiStartVal;
+
         return false;
     }
 
     getWidthScrollBar() {
-        let hasScrollBarElem = document.createElement('div'),
+        let scrolledElem = document.createElement('div'),
             widthScrollBar;
 
-        hasScrollBarElem.style.visibility = 'hidden';
-        hasScrollBarElem.style.position = 'absolute';
-        hasScrollBarElem.style.width = '100px';
-        hasScrollBarElem.style.height = '100px';
-        hasScrollBarElem.style.overflowY = 'scroll';
-        this.elem.appendChild(hasScrollBarElem);
-        widthScrollBar = hasScrollBarElem.offsetWidth - hasScrollBarElem.clientWidth;
-        this.elem.removeChild(hasScrollBarElem);
+        scrolledElem.style.visibility = 'hidden';
+        scrolledElem.style.position = 'absolute';
+        scrolledElem.style.width = '100px';
+        scrolledElem.style.height = '100px';
+        scrolledElem.style.overflowY = 'scroll';
+        this.elem.appendChild(scrolledElem);
+        widthScrollBar = scrolledElem.offsetWidth - scrolledElem.clientWidth;
+        this.elem.removeChild(scrolledElem);
 
         return widthScrollBar;
     }
@@ -46,6 +55,39 @@ class PageObj {
         this.heightInch = this.heightPx * window.devicePixelRatio / this.dpiDevice;
 
         this.elem.style.setProperty('--page-width', this.widthPx);
+    }
+
+    // debug
+    showDebugElem() {
+        let debugElem = document.createElement('div');
+
+        debugElem.classList.add('debug-elem')
+        debugElem.style.zIndex = '10000';
+        debugElem.style.position = 'absolute';
+        debugElem.style.left = '10px';
+        debugElem.style.top = '10px';
+        debugElem.style.padding = '20px';
+        debugElem.style.fontSize = '20px';
+        debugElem.style.lineHeight = '40px';
+        debugElem.style.backgroundColor = 'white';
+        debugElem.style.color = 'black';
+
+        debugElem.innerHTML = `dpiDevice = ${this.getDPIdevice()}dpi
+                            <br>widthScrollBar = ${this.getWidthScrollBar()}px
+                            <br>`;
+
+        this.elem.appendChild(debugElem);
+
+        return true;
+    }
+    removeDebugElem() {
+        let debugElem = document.querySelector('.debug-elem');
+        
+        if(debugElem) return false;
+        
+        this.elem.removeChild(debugElem);
+
+        return true;
     }
 }
 
