@@ -6,7 +6,12 @@ class PageObj {
         this.setSizePage();
         
         // debug
-        this.showDebugElem();
+        this.showDebugElem(
+            this.dpiDevice,
+            this.getWidthScrollBar(),
+            this.widthInch,
+            this.heightInch
+        );
     }
 
     getDPIdevice() {
@@ -51,8 +56,8 @@ class PageObj {
     setSizePage() {
         this.widthPx = this.elem.offsetWidth;
         this.heightPx = this.elem.clientHeight;
-        this.widthInch = this.widthPx * window.devicePixelRatio / this.dpiDevice;
-        this.heightInch = this.heightPx * window.devicePixelRatio / this.dpiDevice;
+        this.widthInch = (this.widthPx * window.devicePixelRatio / this.dpiDevice).toFixed(2);
+        this.heightInch = (this.heightPx * window.devicePixelRatio / this.dpiDevice).toFixed(2);
 
         this.elem.style.setProperty('--page-width', this.widthPx);
     }
@@ -72,9 +77,12 @@ class PageObj {
         debugElem.style.backgroundColor = 'white';
         debugElem.style.color = 'black';
 
-        debugElem.innerHTML = `dpiDevice = ${this.getDPIdevice()}dpi
-                            <br>widthScrollBar = ${this.getWidthScrollBar()}px
-                            <br>`;
+        debugElem.innerHTML = `${arguments[0]}`;
+
+        for (let i = 1; i < arguments[i]; i++) {
+            debugElem.innerHTML = debugElem.innerHTML +
+                                `<br>${arguments[i]}`
+        }
 
         this.elem.appendChild(debugElem);
 
