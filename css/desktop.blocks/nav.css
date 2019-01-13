@@ -1,0 +1,126 @@
+/* ============================================================== */
+
+/* variable section */
+
+.nav {
+    --nav-height: var(--page-header-height);
+
+    --nav-text-size: var(--page-header-text-size);
+
+    --nav-text-primary-color: var(--page-header-text-primary-color);
+    --nav-text-second-color: var(--page-header-text-second-color);
+
+    --nav-animation: 0.7s var(--page-animation-func);
+    --nav-animation-delay: var(--page-animation-delay);
+}
+
+/* ============================================================== */
+
+/* style section */
+
+.nav {
+    display: block;
+}
+.nav--header {
+    font-size: var(--nav-text-size);
+    color: var(--nav-text-second-color);
+    font-weight: 500;
+}
+
+.nav__list {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    position: static;
+    width: 100%;
+}
+
+.nav__item {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    position: relative;
+    height: var(--nav-height);
+    padding: 0;
+    transform-origin: top;
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.nav__item:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top:initial;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--nav-text-primary-color);
+    transform: scale3d(1, 0, 1);
+    transform-origin: bottom;
+    transition: transform var(--nav-animation) 0s;
+}
+.nav__item--active.nav__item:after {
+    transform: scale3d(1, 1, 1);
+    transition: transform var(--nav-animation) 0.4s;
+}
+
+.nav__anchor {
+    position: relative;
+}
+.nav__item--active .nav__anchor {
+    color: var(--nav-text-primary-color);
+    transition: color 0.4s cubic-bezier(0.4, 0.0, 0.2, 1) 0.4s;
+}
+.nav--start-with-animation .nav__anchor {
+    opacity: 0;
+    transform: translate3d(0, calc(-5 * var(--nav-text-size)), 0);
+}
+
+/* ============================================================== */
+
+/* start nav animation section */
+
+.nav--start-with-animation .nav__item:nth-child(1) .nav__anchor {
+    animation: nav-anchor-animation var(--nav-animation) calc(0.5s + var(--nav-animation-delay)) 1 normal forwards;
+}
+.nav--start-with-animation .nav__item:nth-child(2) .nav__anchor {
+    animation: nav-anchor-animation var(--nav-animation) calc(0.6s + var(--nav-animation-delay)) 1 normal forwards;
+}
+.nav--start-with-animation .nav__item:nth-child(3) .nav__anchor {
+    animation: nav-anchor-animation var(--nav-animation) calc(0.7s + var(--nav-animation-delay)) 1 normal forwards;
+}
+.nav--start-with-animation .nav__item:nth-child(4) .nav__anchor {
+    animation: nav-anchor-animation var(--nav-animation) calc(0.8s + var(--nav-animation-delay)) 1 normal forwards;
+}
+.nav--start-with-animation .nav__item:nth-child(5) .nav__anchor {
+    animation: nav-anchor-animation var(--nav-animation) calc(0.9s + var(--nav-animation-delay)) 1 normal forwards;
+}
+@keyframes nav-anchor-animation {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, calc(-5 * var(--nav-text-size)), 0);
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.nav--start-with-animation .nav__item.nav__item:after {
+    animation: nav-item-after-animation var(--nav-animation) calc(1.3s + var(--nav-animation-delay)) 1 normal forwards;
+}
+@keyframes nav-item-after-animation {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 5px;
+    }
+}

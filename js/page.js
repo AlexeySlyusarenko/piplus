@@ -1,48 +1,19 @@
 class PageObj {
     constructor() {
         this.elem = document.querySelector('.page');
+        this.contentElem = document.querySelector('.page__content');
 
-        this.dpiDevice = this.getDPIdevice();
+        this.width = 0;
+        this.height = 0;
+        this.scrollBarWidth = 0;
+        this.contentElem.style.width = 0;
+
         this.setSizePage();
-        
-        // debug
-        this.showDebugElem(
-            this.dpiDevice,
-            this.getWidthScrollBar(),
-            this.widthPx,
-            this.heightPx,
-            window.devicePixelRatio,
-            this.widthInch,
-            this.heightInch
-        );
-    }
-
-    getDPIdevice() {
-        let dpiStartVal = 1,
-            dpiEndVal = 1000;
-
-        while(dpiStartVal != dpiEndVal) {
-
-            let dpiMidVal = Math.floor(dpiStartVal + (dpiEndVal - dpiStartVal) / 2),
-                dpiMediaCSS = window.matchMedia(
-                    `(min-resolution: ${dpiStartVal}dpi) and (max-resolution: ${dpiMidVal}dpi)`
-                );
-
-            if (dpiMediaCSS.matches) {
-                dpiEndVal = dpiMidVal;
-            } else {
-                dpiStartVal = dpiMidVal + 1;
-            }
-        }
-
-        if(window.matchMedia(`(resolution: ${dpiStartVal}dpi)`).matches) return dpiStartVal;
-
-        return false;
     }
 
     getWidthScrollBar() {
         let scrolledElem = document.createElement('div'),
-            widthScrollBar;
+            scrollBarWidth;
 
         scrolledElem.style.visibility = 'hidden';
         scrolledElem.style.position = 'absolute';
@@ -50,19 +21,19 @@ class PageObj {
         scrolledElem.style.height = '100px';
         scrolledElem.style.overflowY = 'scroll';
         this.elem.appendChild(scrolledElem);
-        widthScrollBar = scrolledElem.offsetWidth - scrolledElem.clientWidth;
+        scrollBarWidth = scrolledElem.offsetWidth - scrolledElem.clientWidth;
         this.elem.removeChild(scrolledElem);
 
-        return widthScrollBar;
+        return scrollBarWidth;
     }
 
     setSizePage() {
-        this.widthPx = this.elem.offsetWidth;
-        this.heightPx = this.elem.clientHeight;
-        this.widthInch = (this.widthPx * window.devicePixelRatio / this.dpiDevice).toFixed(2);
-        this.heightInch = (this.heightPx * window.devicePixelRatio / this.dpiDevice).toFixed(2);
+        this.width = this.elem.offsetWidth;
+        this.height = this.elem.clientHeight;
+        this.scrollBarWidth = this.getWidthScrollBar();
+        this.contentElem.style.width = `${this.width + this.scrollBarWidth}px`;
 
-        this.elem.style.setProperty('--page-width', this.widthPx);
+        this.elem.style.setProperty('--page-width', this.width);
     }
 
     // debug
@@ -71,10 +42,11 @@ class PageObj {
 
         debugElem.classList.add('debug-elem')
         debugElem.style.zIndex = '10000';
-        debugElem.style.position = 'absolute';
+        debugElem.style.position = 'fixed';
         debugElem.style.left = '10px';
         debugElem.style.top = '10px';
         debugElem.style.padding = '20px';
+        debugElem.style.borderRadius = '5px';
         debugElem.style.fontSize = '20px';
         debugElem.style.lineHeight = '40px';
         debugElem.style.backgroundColor = 'white';

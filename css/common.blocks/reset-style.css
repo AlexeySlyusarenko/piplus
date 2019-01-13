@@ -1,4 +1,5 @@
 a {
+    color: inherit;
     text-decoration: none
 }
 
@@ -91,4 +92,8 @@ button:-moz-focusring,
 ::-webkit-file-upload-button {
     -webkit-appearance: button;
     font: inherit; 
+}
+
+address {
+    font-style: normal;
 }

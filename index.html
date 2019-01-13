@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Пи плюс</title>
+
     <style>
         * {
             box-sizing: border-box;
@@ -14,9 +15,10 @@
             border: 0;
         }
         html, body {
+            --page-bg-color: #212121;
             width: 100%;
             height: 100%;
-            background-color: var(--page-content-bg-color);
+            background-color: var(--page-bg-color);
             overflow: hidden;
         }
         body {
@@ -28,7 +30,7 @@
             -webkit-tap-highlight-color: transparent;
         }
     </style>
-    <link rel="stylesheet" href="css/preload.css">
+    
     <svg style="display:none">
         <g id="icon_pi_plus" class="icon">
             <path class="icon__svg icon__svg--pi" d="M80 187l-5 -165l10 1z M76 22 A15 15 0 0 1 90 110 A 35 39.3 0 0 0 83 32" />
@@ -41,85 +43,132 @@
             <path class="icon__svg icon__svg--letter" d="M163 126l-5 0a3 3 0 0 0 -3 3l0 10a3 3 0 0 0 3 3l5 0" />
         </g>
         <g id="icon_mail" class="icon">
-            <path class="icon__svg icon__svg--inside-text" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
+            <path class="icon__svg" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"/>
         </g>
         <g id="icon_tel" class="icon">
-            <path class="icon__svg icon__svg--inside-text" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            <path class="icon__svg" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
         </g>
     </svg>
 </head>
 
-<body class="page page--start-with-animation">
+<body class="page page--start-with-animation text">
 
-    <script src="js/page.js"></script>
-
-    <div class="page__logo page__logo--start-with-animation">
-        <svg class="icon icon--fullparent icon--height-80" viewBox="0 0 192 192">
+    <div class="page__logo">
+        <svg class="icon icon--size-full-parent icon--height-80" viewBox="0 0 192 192">
             <use x="0" y="0" xlink:href="#icon_pi_plus" />
         </svg>
     </div>
+
+    <link rel="stylesheet" href="css/main.css">
     
-    <header class="page__header">
-        <div class="header">
-            <nav class="header__menu nav">
-                <ul class="nav__list text text--header text--large">
-                    <li class="nav__item nav__item--active">
-                        <a class="nav__anchor">о компании</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__anchor">новости</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__anchor">проекты</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__anchor">партнеры</a>
-                    </li>
-                    <li class="nav__item">
-                        <a class="nav__anchor">контакты</a>
-                    </li>
-                </ul>
-                <button class="nav__button button button--pos-absolute">
-                    <div class="button__logo button__logo--arrow-right"></div>
-                </button>
-            </nav>
-        </div>
+    <header class="page__header header">
+        <nav class="header__menu nav nav--header nav--start-with-animation">
+            <ul class="nav__list">
+                <li class="nav__item nav__item--active">
+                    <a class="nav__anchor">о компании</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__anchor">новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__anchor">проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__anchor">партнеры</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__anchor">контакты</a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <main class="page__content">
-        <section class="page__section" style="color: white">1</section>
+    <main class="page__content text">
+        <section class="page__section">
+            <div class="about about--start-with-animation">
+                <ul class="about__list">
+                    <li class="about__item">
+                        <h3 class="about__item-header">История</h3>
+                        <p class="about__item-text">ООО «Пи плюс» основана в 2003 году коллективом
+                            высококлассных технических специалистов и менеджеров и на сегодняшний день
+                            является одной из динамично-развивающихся компаний на российском рынке
+                            строительства и недвижимости. Компания продолжает развиваться и завоевывать
+                            ведущие позиции на рынке, используя в своей работе новейшие методы и лучшие
+                            практики, увеличивая тем самым ценность и значимость объектов для Заказчика и
+                            потенциальных клиентов.</p>
+                        <p class="about__item-text">Основная цель компании - стать Партнером,
+                            который поможет Вам добиться успеха в Вашем бизнесе.</p>
+                    </li>
+                    <li class="about__item">
+                        <h3 class="about__item-header">Наша стратегия</h3>
+                        <p class="about__item-text">- Максимальное использование профессиональных
+                            знаний, опыта и навыков персонала «Пи плюс»</p>
+                        <p class="about__item-text">- Выбор профессиональных Партнеров для контроля
+                            качества и своевременного исполнения обязательств</p>
+                        <p class="about__item-text">- Сотрудничество с ведущими Российскими и
+                            зарубежными компаниями</p>
+                    </li>
+                    <li class="about__item">
+                        <h3 class="about__item-header">Команда</h3>
+                        <p class="about__item-text">В настоящее время в компании ООО «Пи плюс»
+                            работают высококвалифицированные специалисты, обеспечивающие выполнение
+                            проектов, техническую и сервисную поддержку.</p>
+                        <p class="about__item-text">Инженерно-технический персонал компании
+                            обладает большим опытом и знает, как обеспечить наиболее высокий уровень
+                            эффективности и безопасности инженерных систем без снижения продуктивности
+                            работы и комфорта для Заказчика.</p>
+                    </li>
+                    <li class="about__item">
+                        <h3 class="about__item-header">Деятельность</h3>
+                        <p class="about__item-text">Основная деятельность нашей компании строится по направлениям
+                            проектирования, выполнения работ и сервисной поддержки в следующих областях:</p>
+                        <p class="about__item-text">- Электроснабжение</p>
+                        <p class="about__item-text">- Системы автоматизации</p>
+                        <p class="about__item-text">- Отопление, вентиляция и кондиционирование</p>
+                        <p class="about__item-text">- Системы водоснабжения и канализации</p>
+                        <p class="about__item-text">- Пожарная и охранная сигнализации</p>
+                        <p class="about__item-text">- Системы контроля доступа и видеонаблюдения</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
         <section class="page__section" style="color: white">2</section>
         <section class="page__section" style="color: white">3</section>
         <section class="page__section" style="color: white">4</section>
     </main>
 
+    <div class="page__nav page__nav">
+
+    </div>
+
     <footer class="page__footer">
-        <div class="footer">
-            <address class="footer__company contact contact--footer">
+        <div class="footer footer--start-with-animation text text--footer">
+            <address class="footer__company contact contact--start-with-animation">
                 <span class="contact__text">
                     ООО "Пи плюс", 2003-2019
                 </span>
-                <svg class="icon icon--size-24px icon--inside-text" viewBox="0 0 24 24">
+                <br>
+                <svg class="contact__icon contact__icon--group-animation-1 icon" viewBox="0 0 24 24">
                     <use x="0" y="0" xlink:href="#icon_tel" />
                 </svg>
-                <a href="tel:+74957975621" class="contact__text">
+                <a href="tel:+74957975621" class="contact__text contact__text--group-animation-1">
                     +7 (495) 797-56-21
                 </a>
-                <svg class="icon icon--size-24px icon--inside-text" viewBox="0 0 24 24">
+                <svg class="contact__icon contact__icon--group-animation-2 icon" viewBox="0 0 24 24">
                     <use x="0" y="0" xlink:href="#icon_mail" />
                 </svg>
-                <a href="mailto:reception@piplus.ru" class="contact__text">
+                <a href="mailto:reception@piplus.ru" class="contact__text contact__text--group-animation-2">
                     reception@piplus.ru
                 </a>
             </address>
             <ul class="footer__lang">
-                <li class="footer__lang-item footer__lang-item--short">рус</li>
-                <li class="footer__lang-item footer__lang-item--short">en</li>
-                <li class="footer__lang-item footer__lang-item--long">русский</li>
-                <li class="footer__lang-item footer__lang-item--long">english</li>
+                <li class="footer__lang-item footer__lang-item--active">русский</li>
+                <li class="footer__lang-item">english</li>
             </ul>
         </div>
     </footer>
+
+    <script src="js/page.js"></script>
 </body>
 
 </html>

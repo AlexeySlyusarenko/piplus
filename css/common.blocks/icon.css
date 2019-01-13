@@ -12,16 +12,9 @@
     width: 100%;
     height: 100%;
 }
-.icon--size-24px {
-    width: 24px;
-    height: 24px;
-}
-.icon--inside-text {
-    display: inline;
-}
 
 .icon__svg {
-    fill: #9e9e9e;
+
 }
 .icon__svg--pi {
     fill: #9e9e9e;

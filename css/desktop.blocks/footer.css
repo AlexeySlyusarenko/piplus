@@ -1,0 +1,87 @@
+/* ============================================================== */
+
+/* variable section */
+
+.footer {
+    --footer-height: var(--page-footer-height);
+    --footer-text-size: var(--page-footer-text-size);
+
+    --footer-max-width: var(--page-section-max-width);
+
+    --footer-text-primary-color: var(--page-footer-text-primary-color);
+    --footer-text-second-color: var(--page-footer-text-second-color);
+
+    --footer-animation: 0.7s var(--page-animation-func);
+    --footer-animation-delay: var(--page-animation-delay);
+}
+
+/* ============================================================== */
+
+/* style section */
+
+.footer {
+    max-width: var(--footer-max-width);
+    height: var(--footer-height);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 calc(var(--footer-height) / 2);
+}
+
+.footer__company {
+}
+
+.footer__lang {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-end;
+    transform-origin: bottom;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+}
+
+.footer__lang-item {
+    display: inline-block;
+    font-size: var(--footer-text-size);
+    color: var(--footer-text-second-color);
+    font-weight: 500;
+    line-height: 26px;
+    opacity: 0;
+    transform: translate3d(0, calc(var(--footer-text-size) * 5), 0);
+    transition: color var(--footer-animation) 0s;
+    cursor: pointer;
+}
+.footer__lang-item--active {
+    color: var(--footer-text-primary-color);
+    transition: color var(--footer-animation) 0.3s;
+}
+
+/* ============================================================== */
+
+/* start page animation section */
+
+.footer--start-with-animation .footer__lang-item {
+    animation: footer-animation-lang-item var(--footer-animation) calc(1.6s + var(--footer-animation-delay)) 1 normal forwards;
+}
+
+.footer--start-with-animation .footer__lang-item:nth-child(2) {
+    animation-delay: calc(1.8s + var(--footer-animation-delay));
+}
+
+@keyframes footer-animation-lang-item {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, calc(var(--footer-text-size) * 5), 0);
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}

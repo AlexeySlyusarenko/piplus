@@ -1,0 +1,27 @@
+/* ============================================================== */
+
+/* font section */
+
+@font-face{
+    font-family: "gost"; 
+    src: url('../../fonts/GOST type B.ttf');
+    font-weight: normal;
+    font-style: normal;    
+}
+
+/* ============================================================== */
+
+/* style section */
+
+.text {
+    font-family: 'gost';
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+}
+.text--header {
+    color: #9e9e9e;
+    /* text-transform: uppercase; */
+    font-weight: 500;
+}

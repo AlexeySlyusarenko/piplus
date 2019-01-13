@@ -1,0 +1,183 @@
+/* ============================================================== */
+
+/* variable section */
+
+.page {
+/* size element */
+    --page-header-height: 72px;
+    --page-header-text-size: 22px;
+    --page-content-width: 0;
+    --page-content-text-size: 15px;
+    --page-section-max-width: 1000px;
+    --page-footer-height: 72px;
+    --page-footer-text-size: 15px;
+
+/* color element */
+    /* dark theme */
+    --page-bg-color: #212121;
+    --page-header-bg-color: rgba(33, 33, 33, 0.95);
+    --page-header-bg-blur-color: rgba(33, 33, 33, 0.7);
+    --page-header-text-primary-color: #fff;
+    --page-header-text-second-color: #757575;
+    /* --page-header-bg-color: #424242; */
+    --page-content-primary-color: #212121;
+    --page-content-second-color: #4575A3;
+    --page-content-text-primary-color: #fff;
+    --page-content-text-second-color: #bdbdbd;
+    --page-button-bg-color: rgba(30, 52, 73, 0.95);
+    --page-button-bg-blur-color: rgba(30, 52, 73, 0.7);
+    --page-footer-bg-color: rgba(33, 33, 33, 0.95);
+    --page-footer-bg-blur-color: rgba(33, 33, 33, 0.7);
+    --page-footer-text-primary-color: #fff;
+    --page-footer-text-second-color: #757575;
+    /* --page-footer-bg-color: #424242; */
+
+    --page-animation-func: cubic-bezier(0.4, 0.0, 0.2, 1);
+    --page-animation-delay: 3s;
+}
+
+/* ============================================================== */
+
+/* style section */
+
+.page {
+    z-index: 10;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.page__logo {
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: 50% 50%;
+}
+.page--start-with-animation .page__logo {
+    opacity: 0;
+    transform: scale3d(0, 0, 1);
+}
+
+.page__header {
+    z-index: 300;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: var(--page-header-height);
+    background-color: var(--page-header-bg-color);
+    transform: scale3d(1, 0, 1);
+    transform-origin: top;
+}
+@supports (-webkit-backdrop-filter: blur(5px)) {
+    .page__header {
+        background-color: var(--page-header-bg-blur-color);
+        -webkit-backdrop-filter: blur(5px);
+    }
+}
+
+.page__content {
+    z-index: 150;
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.page__section {
+    z-index: 200;
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: var(--page-section-max-width);
+    min-height: 100%;
+    padding: var(--page-footer-height) 0;
+    /* overflow: hidden; */
+}
+.page__section--align--center {
+    justify-content: center;
+    align-items: center;
+}
+
+.page__nav {
+    display: none;
+}
+
+.page__footer {
+    z-index: 200;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: var(--page-footer-height);
+    background-color: var(--page-footer-bg-color);
+    transform: scale3d(1, 0, 1);
+    transform-origin: bottom;
+}
+@supports (-webkit-backdrop-filter: blur(5px)) {
+    .page__footer {
+        background-color: var(--page-footer-bg-blur-color);
+        -webkit-backdrop-filter: blur(5px);
+    }
+}
+
+/* ============================================================== */
+
+/* start page animation section */
+
+.page--start-with-animation .page__header {
+    animation: page-header-animation 0.3s var(--page-animation-func) calc(0.3s + var(--page-animation-delay)) 1 normal forwards;
+}
+@keyframes page-header-animation {
+    0% {
+        transform: scale3d(1 ,0, 1);
+    }
+    100% {
+        transform: scale3d(1 ,1, 1);
+    }
+}
+
+.page--start-with-animation .page__logo {
+    animation: logo-end-animation 4s cubic-bezier(.31,.21,.48,1) 0s 1 normal forwards;
+}
+@keyframes logo-end-animation {
+    0% {
+        opacity: 0;
+        transform: scale3d(0, 0, 1);
+    }
+    40% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+    100% {
+        opacity: 0.1;
+        transform: scale3d(0.9, 0.9, 1);
+    }
+}
+
+.page--start-with-animation .page__footer {
+    animation: page-footer-animation 0.3s var(--page-animation-func) calc(0.5s + var(--page-animation-delay)) 1 normal forwards;
+}
+@keyframes page-footer-animation {
+    0% {
+        transform: scale3d(1 ,0, 1);
+    }
+    100% {
+        transform: scale3d(1 ,1, 1);
+    }
+}

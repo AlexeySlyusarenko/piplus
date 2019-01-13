@@ -5,40 +5,27 @@
 .page {
 /* size element */
     --page-header-height: 72px;
-    --page-section-min-height: 100vh;
-    --page-section-max-width: 900px;
+    --page-content-width: 0;
     --page-footer-height: 72px;
 
 /* color element */
     /* dark theme */
-    --page-header-bg-color: rgba(33, 33, 33, 0.9);
+    --page-bg-color: #212121;
+    --page-header-bg-color: rgba(33, 33, 33, 0.95);
     --page-header-bg-blur-color: rgba(33, 33, 33, 0.7);
     /* --page-header-bg-color: #424242; */
-    --page-content-bg-color: #212121;
     --page-content-primary-color: #212121;
     --page-content-second-color: #4575A3;
     --page-content-active-color: #fff;
     --page-content-passive-color: #bdbdbd;
-    --page-footer-bg-color: rgba(33, 33, 33, 0.9);
+    --page-button-bg-color: rgba(30, 52, 73, 0.95);
+    --page-button-bg-blur-color: rgba(30, 52, 73, 0.7);
+    --page-footer-bg-color: rgba(33, 33, 33, 0.95);
     --page-footer-bg-blur-color: rgba(33, 33, 33, 0.7);
     /* --page-footer-bg-color: #424242; */
 
-
-
-    /* light theme */
-    /* --page-header-bg-color: #f7f7f7;
-    --page-header-bg-blur-color: #f7f7f7; */
-    --page-header-bg-color: red;
-    --page-header-bg-blur-color: red;
-    /* --page-content-bg-color: #f7f7f7; */
-    /* --page-content-bg-color: #ececec; */
-    /* --page-footer-bg-color: #f7f7f7;
-    --page-footer-bg-blur-color: #f7f7f7; */
-    --page-footer-bg-color: green;
-    --page-footer-bg-blur-color: green;
-
     --page-animation-func: cubic-bezier(0.4, 0.0, 0.2, 1);
-    --page-animation-delay: 0s;
+    --page-animation-delay: 3s;
 }
 
 /* ============================================================== */
@@ -47,14 +34,12 @@
 
 .page {
     z-index: 10;
-    position: absolute;
+    position: relative;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
 }
 
 .page__logo {
@@ -76,7 +61,7 @@
 
 .page__header {
     z-index: 300;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     width: 100%;
@@ -85,45 +70,70 @@
     transform: scale3d(1, 0, 1);
     transform-origin: top;
 }
-@supports ( (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) ) {
+@supports (-webkit-backdrop-filter: blur(5px)) {
     .page__header {
         background-color: var(--page-header-bg-blur-color);
-        backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
     }
 }
 
 .page__content {
     z-index: 150;
-    position: relative;
-    width: 100%;
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .page__section {
     z-index: 200;
     position: relative;
     width: 100%;
-    min-height: var(--page-section-min-height);
+    min-height: 100%;
     padding: var(--page-footer-height) 0;
 }
 
-.page__footer {
-    z-index: 200;
-    position: fixed;
-    left: 0;
+.page__nav {
+    display: flex;
+    z-index: 400;
+    position: absolute;
+    right: 0;
     bottom: 0;
-    width: 100%;
+    width: var(--page-footer-height);
     height: var(--page-footer-height);
-    background-color: var(--page-footer-bg-color);
-    transform: scale3d(1, 0, 1);
-    transform-origin: bottom;
+    border-top-left-radius: calc(var(--page-footer-height) / 1.5);
+    background-color: var(--page-button-bg-color);
+    transform: scale3d(0, 0, 1);
+    transform-origin: bottom right;
+    transition: height 0.3s var(--page-animation-func) 0s,
+            width 0.3s cubic-bezier(0.6, 0.0, 0.2, 1) 0s;
+    /* transition: height 0.3s cubic-bezier(0.6, 0.0, 0.2, 1) 0s,
+                width 0.3s var(--page-animation-func) 0s; */
 }
-@supports ( (backdrop-filter: blur(5px)) or (-webkit-backdrop-filter: blur(5px)) ) {
-    .page__footer {
-        background-color: var(--page-footer-bg-blur-color);
-        backdrop-filter: blur(5px);
+.page__nav--show {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 0;
+    transition: height 0.3s cubic-bezier(0.6, 0.0, 0.2, 1) 0s,
+                width 0.3s var(--page-animation-func) 0s;
+    /* transition: height 0.3s var(--page-animation-func) 0s,
+                width 0.3s cubic-bezier(0.6, 0.0, 0.2, 1) 0s; */
+}
+@supports (-webkit-backdrop-filter: blur(5px)) {
+    .page__nav {
+        background-color: var(--page-button-bg-blur-color);
         -webkit-backdrop-filter: blur(5px);
     }
+}
+
+.page__footer {
+    display: none;
 }
 
 /* ============================================================== */
@@ -131,7 +141,7 @@
 /* start page animation section */
 
 .page--start-with-animation .page__header {
-    animation: page-header-animation 0.3s var(--page-animation-func) calc(0s + var(--page-animation-delay)) 1 normal forwards;
+    animation: page-header-animation 0.3s var(--page-animation-func) calc(0.3s + var(--page-animation-delay)) 1 normal forwards;
 }
 @keyframes page-header-animation {
     0% {
@@ -148,24 +158,24 @@
 @keyframes logo-end-animation {
     0% {
         opacity: 0;
-        transform: scale3d(0, 0, 1);
+        transform: scale3d(0, 0, 1) translate3d(0, 0, 0);
     }
     40% {
         opacity: 1;
-        transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
     }
     100% {
         opacity: 0.1;
-        transform: scale3d(0.9, 0.9, 1);
+        transform: scale3d(0.9, 0.9, 1) translate3d(0, calc(var(--page-header-height) / 2), 0);
     }
 }
 
-.page--start-with-animation .page__footer {
-    animation: page-footer-animation 0.3s var(--page-animation-func) calc(0.5s + var(--page-animation-delay)) 1 normal forwards;
+.page--start-with-animation .page__nav {
+    animation: page-button-animation 0.3s var(--page-animation-func) calc(0.8s + var(--page-animation-delay)) 1 normal forwards;
 }
-@keyframes page-footer-animation {
+@keyframes page-button-animation {
     0% {
-        transform: scale3d(1 ,0, 1);
+        transform: scale3d(0 ,0, 1);
     }
     100% {
         transform: scale3d(1 ,1, 1);

@@ -1,0 +1,75 @@
+/* ============================================================== */
+
+/* variable section */
+
+.contact {
+    --contact-text-size: var(--page-footer-text-size);
+
+    --contact-text-primary-color: var(--page-footer-text-primary-color);
+    --contact-text-second-color: var(--page-footer-text-second-color);
+
+    --contact-animation: 0.7s var(--page-animation-func);
+    --contact-animation-delay: var(--page-animation-delay);
+}
+
+/* ============================================================== */
+
+/* style section */
+
+.contact {
+    position: relative;
+}
+
+.contact__icon {
+    display: inline-block;
+    width: calc(var(--contact-text-size) + 5px);
+    height: calc(var(--contact-text-size) + 5px);
+    margin: 0 5px -5px 0;
+    opacity: 0;
+    transform: translate3d(0, calc(var(--contact-text-size) * 5), 0);
+    fill: var(--contact-text-primary-color);
+}
+
+.contact__text {
+    display: inline-block;
+    margin-right: 20px;
+    opacity: 0;
+    transform: translate3d(0, calc(var(--contact-text-size) * 5), 0);
+    font-size: var(--contact-text-size);
+    color: var(--contact-text-second-color);
+    font-weight: 500;
+    line-height: 26px;
+}
+
+/* ============================================================== */
+
+/* start contact animation section */
+
+.contact--start-with-animation .contact__icon,
+.contact--start-with-animation .contact__text {
+    animation: contact-animation var(--contact-animation) calc(1s + var(--contact-animation-delay)) 1 normal forwards;
+}
+
+.contact--start-with-animation .contact__icon.contact__icon--group-animation-1,
+.contact--start-with-animation .contact__text.contact__text--group-animation-1 {
+    animation-delay: calc(1.2s + var(--contact-animation-delay));
+}
+
+.contact--start-with-animation .contact__icon.contact__icon--group-animation-2,
+.contact--start-with-animation .contact__text.contact__text--group-animation-2 {
+    animation-delay: calc(1.4s + var(--contact-animation-delay));
+}
+
+@keyframes contact-animation {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, calc(var(--contact-text-size) * 5), 0);
+    }
+    40% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
